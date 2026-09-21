@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diyanto | Software Engineer & Mobile Developer</title>
+  <meta name="description"
+    content="Portofolio resmi Diyanto - Software Engineer & Mobile Developer dengan spesialisasi Flutter, Dart, AI Integration, dan High-Performance Mobile Apps." />
+
+    <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+
+  <!-- Theme & SEO Meta -->
+  <meta name="theme-color" content="#060911" />
+  <meta name="author" content="Diyanto" />
+  <meta name="keywords" content="Diyanto, Software Engineer, Mobile Developer, Flutter, Dart, Android NDK, Web Developer, Portfolio" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Diyanto | Software Engineer & Mobile Developer" />
+  <meta property="og:description" content="Portofolio resmi Diyanto - Software Engineer & Mobile Developer spesialisasi Flutter, Dart, AI Integration, dan High-Performance Mobile Apps." />
+  <meta property="og:image" content="assets/images/og-image.svg" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Diyanto | Software Engineer & Mobile Developer" />
+  <meta name="twitter:description" content="Portofolio resmi Diyanto - Software Engineer & Mobile Developer spesialisasi Flutter, Dart, AI Integration, dan High-Performance Mobile Apps." />
+  <meta name="twitter:image" content="assets/images/og-image.svg" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              cyan: '#06b6d4',
+              teal: '#0d9488',
+              emerald: '#10b981',
+              dark: '#0b0f19',
+              darker: '#060911',
+              card: 'rgba(17, 24, 39, 0.75)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body
+  class="bg-[#060911] text-slate-200 antialiased selection:bg-cyan-500 selection:text-white transition-colors duration-300">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glassmorphism border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div
+          class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-emerald-500 flex items-center justify-center font-bold text-white shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+          D
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-lg tracking-tight group-hover:text-cyan-400 transition-colors">Diyanto</span>
+          <span class="text-xs font-mono text-cyan-400">Software Engineer</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#about" data-i18n="nav.about" class="text-slate-300 hover:text-cyan-400 transition-colors">Tentang</a>
+        <a href="#experience" data-i18n="nav.experience" class="text-slate-300 hover:text-cyan-400 transition-colors">Pengalaman</a>
+        <a href="#skills" data-i18n="nav.skills" class="text-slate-300 hover:text-cyan-400 transition-colors">Keahlian</a>
+        <a href="#projects" data-i18n="nav.projects" class="text-slate-300 hover:text-cyan-400 transition-colors">Produk & Proyek</a>
+        <a href="#contact" data-i18n="nav.contact" class="text-slate-300 hover:text-cyan-400 transition-colors">Kontak</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- Language Switcher Pill (Desktop) -->
+        <div class="lang-switcher-container flex items-center p-1 rounded-lg bg-slate-900/90 border border-slate-700/80 text-xs font-mono">
+          <button type="button" data-lang="id" onclick="setLanguage('id')"
+            class="px-2 py-0.5 rounded font-bold transition-all bg-cyan-500 text-slate-950 shadow-sm">ID</button>
+          <button type="button" data-lang="en" onclick="setLanguage('en')"
+            class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all font-medium">EN</button>
+        </div>
+
+        <!-- Resume Link -->
+        <a href="mailto:diyanto2911@gmail.com"
+          class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500 hover:text-white text-xs font-mono tracking-wide transition-all">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          <span data-i18n="nav.hire_me">Hire Me</span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn"
+          class="md:hidden p-2 rounded-lg bg-slate-800/60 border border-slate-700 text-slate-300">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-[#0b0f19]/95 px-6 py-4 space-y-3">
+      <!-- Language Switcher Pill (Mobile) -->
+      <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+        <span class="text-xs font-mono text-slate-400">Pilih Bahasa / Language</span>
+        <div class="lang-switcher-container flex items-center p-1 rounded-lg bg-slate-900 border border-slate-700 text-xs font-mono">
+          <button type="button" data-lang="id" onclick="setLanguage('id')"
+            class="px-2 py-0.5 rounded font-bold transition-all bg-cyan-500 text-slate-950 shadow-sm">ID</button>
+          <button type="button" data-lang="en" onclick="setLanguage('en')"
+            class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all font-medium">EN</button>
+        </div>
+      </div>
+      <a href="#about" data-i18n="nav.about" class="block py-2 text-slate-300 hover:text-cyan-400 mobile-nav-link">Tentang</a>
+      <a href="#experience" data-i18n="nav.experience" class="block py-2 text-slate-300 hover:text-cyan-400 mobile-nav-link">Pengalaman</a>
+      <a href="#skills" data-i18n="nav.skills" class="block py-2 text-slate-300 hover:text-cyan-400 mobile-nav-link">Keahlian</a>
+      <a href="#projects" data-i18n="nav.projects" class="block py-2 text-slate-300 hover:text-cyan-400 mobile-nav-link">Produk & Proyek</a>
+      <a href="#contact" data-i18n="nav.contact" class="block py-2 text-slate-300 hover:text-cyan-400 mobile-nav-link">Kontak</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative pt-36 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+    <!-- Ambient glow -->
+    <div
+      class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none">
+    </div>
+    <div class="absolute top-1/3 right-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+        <div class="lg:col-span-7 space-y-6">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span data-i18n="hero.available">Available for Remote Roles & High-Impact Projects</span>
+          </div>
+
+          <h1 data-i18n="hero.title" data-i18n-html="true" class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+            Membangun Aplikasi Skala Besar dengan <span class="gradient-text">Flutter & Modern Engineering</span>.
+          </h1>
+
+          <p data-i18n="hero.bio" data-i18n-html="true" class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl">
+            Halo, saya <strong>Diyanto</strong>. Software Engineer yang berpengalaman merancang aplikasi mobile
+            berkinerja tinggi, mengintegrasikan kecerdasan buatan (AI), pipeline CI/CD instan, serta arsitektur backend
+            yang tangguh.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <a href="#projects"
+              class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] transition-all flex items-center gap-2">
+              <span data-i18n="hero.btn_projects">Eksplorasi Produk & Proyek</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#contact"
+              class="px-6 py-3 rounded-xl glassmorphism text-slate-200 font-medium text-sm hover:border-cyan-500/40 transition-all flex items-center gap-2">
+              <i data-lucide="send" class="w-4 h-4 text-cyan-400"></i>
+              <span data-i18n="hero.btn_contact">Hubungi Saya</span>
+            </a>
+          </div>
+
+          <!-- Quick Metrics Bar -->
+          <div class="pt-8 grid grid-cols-3 gap-4 border-t border-slate-800/80">
+            <div>
+              <div class="text-2xl font-bold text-cyan-400" data-i18n="hero.metric_exp_val">5+ Thn</div>
+              <div class="text-xs text-slate-400 mt-0.5" data-i18n="hero.metric_exp">Pengalaman Rekayasa</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-emerald-400" data-i18n="hero.metric_cicd_val">8 Menit</div>
+              <div class="text-xs text-slate-400 mt-0.5" data-i18n="hero.metric_cicd">CI/CD Deployment</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-slate-100" data-i18n="hero.metric_offline_val">100%</div>
+              <div class="text-xs text-slate-400 mt-0.5" data-i18n="hero.metric_offline">Offline-First & Reliability</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Portrait & Engineer Showcase Card (Option 1) -->
+        <div class="lg:col-span-5 relative group">
+          <!-- Ambient Halo Glow behind photo -->
+          <div
+            class="absolute -inset-1.5 bg-gradient-to-r from-cyan-500/30 via-emerald-500/25 to-blue-500/30 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
+          </div>
+
+          <div
+            class="relative glassmorphism rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900/80">
+            <!-- Top Status Bar of Card -->
+            <div class="flex items-center justify-between px-4 py-3 border-b border-slate-800 bg-slate-950/60 font-mono text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span data-i18n="hero.photo_status" class="text-emerald-300 font-semibold">Tersedia untuk Remote</span>
+              </div>
+              <span data-i18n="hero.photo_badge" class="text-[11px] text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">Flutter & Mobile Specialist</span>
+            </div>
+
+            <!-- Profile Image Showcase (Full Face Framing) -->
+            <div class="relative overflow-hidden group/img bg-slate-950">
+              <img src="assets/images/profile/profile.jpg" alt="Diyanto - Software Engineer"
+                class="w-full h-[380px] sm:h-[440px] object-cover transition-transform duration-700 group-hover/img:scale-105"
+                style="object-position: center 36%;"
+                loading="eager" />
+              
+              <!-- Clean minimal bottom edge shadow -->
+              <div class="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none"></div>
+            </div>
+
+            <!-- Quick Badges Strip (Placed outside photo so face is 100% visible) -->
+            <div class="px-4 py-2.5 bg-slate-950/95 border-t border-slate-800/80 flex items-center justify-between gap-2 text-xs font-mono">
+              <div class="flex items-center gap-1.5 text-slate-300">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-rose-400"></i>
+                <span data-i18n="hero.photo_location">Indramayu, Jawa Barat</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-amber-300 bg-amber-950/40 px-2.5 py-0.5 rounded border border-amber-500/30">
+                <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span data-i18n="hero.photo_exp" class="font-bold">5+ Thn Rekayasa</span>
+              </div>
+            </div>
+
+            <!-- Mini Terminal / Code Snippet Bar -->
+            <div class="p-4 bg-slate-950/90 border-t border-slate-800/80 font-mono text-xs space-y-2.5">
+              <div class="flex items-center justify-between text-[11px] text-slate-400 border-b border-slate-800/60 pb-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                  <span class="ml-2 text-slate-300">diyanto_spec.dart</span>
+                </div>
+                <span class="text-cyan-400">v2026.1</span>
+              </div>
+
+              <div class="text-[11.5px] leading-relaxed text-slate-300 space-y-1">
+                <p><span class="text-purple-400">final</span> engineer = <span class="text-cyan-300">SoftwareEngineer</span>(</p>
+                <p class="pl-4">name: <span class="text-emerald-300">'Diyanto'</span>,</p>
+                <p class="pl-4">stack: [<span class="text-cyan-400">'Flutter'</span>, <span class="text-cyan-400">'Android NDK'</span>, <span class="text-cyan-400">'CI/CD'</span>, <span class="text-cyan-400">'AI'</span>],</p>
+                <p class="pl-4">readyToShip: <span class="text-emerald-400">true</span>,</p>
+                <p>);</p>
+              </div>
+
+              <div class="pt-1 flex items-center justify-between text-[11px] text-slate-400">
+                <span class="flex items-center gap-1 text-emerald-400">
+                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+                  <span>Architecture Verified</span>
+                </span>
+                <a href="#about" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 hover:underline">
+                  <span data-i18n="hero.photo_view_bio">Lihat Profil</span>
+                  <i data-lucide="arrow-down" class="w-3 h-3"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 border-t border-slate-800/60 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <h2 data-i18n="about.subtitle" class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">Profil Profesional</h2>
+        <p data-i18n="about.title" class="text-3xl font-bold text-white">Spesialis Aplikasi Skalabel Berbasis Pengalaman Nyata</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="glassmorphism p-8 rounded-2xl border border-white/5 space-y-4">
+          <h3 data-i18n="about.card1_title" class="text-xl font-bold text-slate-100 flex items-center gap-2">
+            <i data-lucide="user-check" class="w-5 h-5 text-cyan-400"></i>
+            Dedikasi Rekayasa Perangkat Lunak
+          </h3>
+          <p data-i18n="about.card1_desc" class="text-slate-400 leading-relaxed text-sm">
+            Praktisi pengembangan mobile dinamis dengan rekam jejak terbukti dalam membangun aplikasi yang intuitif dan
+            berorientasi pada kenyamanan pengguna. Menguasai ekosistem Flutter secara mendalam, optimalisasi
+            performa rendah latensi menggunakan Android NDK, hingga implementasi kecerdasan buatan (AI) terapan pada
+            aplikasi mobile.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-cyan-950/40 border border-cyan-500/20 text-cyan-300 rounded-full text-xs">Mobile
+              Architecture</span>
+            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs">Cross-Platform Dev</span>
+            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs">CI/CD Automation</span>
+          </div>
+        </div>
+
+        <div class="glassmorphism p-8 rounded-2xl border border-white/5 space-y-4">
+          <h3 data-i18n="about.card2_title" class="text-xl font-bold text-slate-100 flex items-center gap-2">
+            <i data-lucide="graduation-cap" class="w-5 h-5 text-emerald-400"></i>
+            Latar Belakang Pendidikan & Prestasi
+          </h3>
+          <div class="border-l-2 border-emerald-500/40 pl-4 space-y-2">
+            <h4 data-i18n="about.edu_degree" class="text-base font-semibold text-white">Diploma (D3) Teknik Informatika</h4>
+            <p data-i18n="about.edu_school" class="text-xs font-mono text-cyan-400">Politeknik Negeri Indramayu (Lulus 10/2020)</p>
+            <ul class="text-xs text-slate-400 space-y-1 pt-2 list-disc list-inside">
+              <li data-i18n="about.edu_item1" data-i18n-html="true">Penerima penghargaan <strong>Awarded Best Project in Informatics Engineering</strong>.</li>
+              <li data-i18n="about.edu_item2">Aktif dalam program pengabdian masyarakat pemberdayaan UMKM (Mangoline).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline -->
+  <section id="experience" class="py-20 bg-slate-950/40 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-16">
+        <h2 data-i18n="experience.subtitle" class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">Riwayat Karier</h2>
+        <p data-i18n="experience.title" class="text-3xl font-bold text-white">Perjalanan Profesional & Kontribusi Industri</p>
+      </div>
+
+      <div
+        class="space-y-8 relative before:absolute before:inset-0 before:left-3.5 md:before:left-1/2 before:w-0.5 before:-translate-x-1/2 before:bg-slate-800">
+
+        <!-- 1. PT Cyber Blitz Nusantara (Current) -->
+        <div class="relative flex flex-col md:flex-row items-start group">
+          <div
+            class="flex items-center justify-center w-7 h-7 rounded-full bg-cyan-500 ring-4 ring-[#060911] text-slate-950 font-bold z-10 md:absolute md:left-1/2 md:-translate-x-1/2">
+            <span class="w-2 h-2 rounded-full bg-white"></span>
+          </div>
+          <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-10 md:pl-0 mt-3 md:mt-0">
+            <span data-i18n="exp.job1_period" class="text-xs font-mono text-cyan-400 font-semibold">04/2025 – Sekarang</span>
+            <h3 data-i18n="exp.job1_role" class="text-lg font-bold text-white">Mobile Developer</h3>
+            <p class="text-sm text-slate-400">PT Cyber Blitz Nusantara (Bandung / Remote)</p>
+          </div>
+          <div class="w-full md:w-1/2 md:pl-12 pl-10 mt-2 md:mt-0">
+            <div class="glassmorphism p-5 rounded-xl border border-white/5 space-y-2">
+              <p data-i18n="exp.job1_desc" class="text-xs text-slate-300">Menyederhanakan pengujian dengan Continuous Integration (CI),
+                optimalisasi performa aplikasi skala besar, dan mendukung sistem legacy dengan peningkatan fitur
+                berkala.</p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">Flutter</span>
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">CI Tools</span>
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">Performance
+                  Optimization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. PT Aplikasi Lintas Bangsa (Ximply) -->
+        <div class="relative flex flex-col md:flex-row items-start group">
+          <div
+            class="flex items-center justify-center w-7 h-7 rounded-full bg-slate-700 ring-4 ring-[#060911] text-slate-950 font-bold z-10 md:absolute md:left-1/2 md:-translate-x-1/2">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+          </div>
+          <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-10 md:pl-0 mt-3 md:mt-0">
+            <span data-i18n="exp.job2_period" class="text-xs font-mono text-cyan-400 font-semibold">01/2025 – 04/2025</span>
+            <h3 data-i18n="exp.job2_role" class="text-lg font-bold text-white">Mobile Developer</h3>
+            <p class="text-sm text-slate-400">PT Aplikasi Lintas Bangsa (Ximply) - Jakarta</p>
+          </div>
+          <div class="w-full md:w-1/2 md:pl-12 pl-10 mt-2 md:mt-0">
+            <div class="glassmorphism p-5 rounded-xl border border-white/5 space-y-2">
+              <p data-i18n="exp.job2_desc" class="text-xs text-slate-300">Membangun mobile apps B2B & B2C untuk iOS dan Android, mengintegrasikan
+                fitur Artificial Intelligence (AI) langsung ke dalam mobile workflow.</p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">AI Integration</span>
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">B2B & B2C Apps</span>
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">iOS & Android</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. PT Beruang Maia Raya (Frontend & CI/CD) -->
+        <div class="relative flex flex-col md:flex-row items-start group">
+          <div
+            class="flex items-center justify-center w-7 h-7 rounded-full bg-slate-700 ring-4 ring-[#060911] text-slate-950 font-bold z-10 md:absolute md:left-1/2 md:-translate-x-1/2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          </div>
+          <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-10 md:pl-0 mt-3 md:mt-0">
+            <span data-i18n="exp.job3_period" class="text-xs font-mono text-cyan-400 font-semibold">05/2024 – 12/2024</span>
+            <h3 data-i18n="exp.job3_role" class="text-lg font-bold text-white">Software Engineer</h3>
+            <p class="text-sm text-slate-400">PT Beruang Maia Raya - Jakarta Selatan</p>
+          </div>
+          <div class="w-full md:w-1/2 md:pl-12 pl-10 mt-2 md:mt-0">
+            <div class="glassmorphism p-5 rounded-xl border border-white/5 space-y-2">
+              <p data-i18n="exp.job3_desc" data-i18n-html="true" class="text-xs text-slate-300">Memimpin pengembangan frontend portal pinjaman berkeandalan tinggi serta
+                membangun pipeline CI/CD yang memangkas durasi deploy dari <strong>1 hari menjadi hanya 8
+                  menit</strong>.</p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">CI/CD Pipeline</span>
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">High-Availability
+                  Web</span>
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">Frontend Lead</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. PT Delos Teknologi Maritim Jaya -->
+        <div class="relative flex flex-col md:flex-row items-start group">
+          <div
+            class="flex items-center justify-center w-7 h-7 rounded-full bg-slate-700 ring-4 ring-[#060911] z-10 md:absolute md:left-1/2 md:-translate-x-1/2">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+          </div>
+          <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-10 md:pl-0 mt-3 md:mt-0">
+            <span data-i18n="exp.job4_period" class="text-xs font-mono text-cyan-400 font-semibold">09/2022 – 05/2024</span>
+            <h3 data-i18n="exp.job4_role" class="text-lg font-bold text-white">Software Engineer</h3>
+            <p class="text-sm text-slate-400">PT Delos Teknologi Maritim Jaya</p>
+          </div>
+          <div class="w-full md:w-1/2 md:pl-12 pl-10 mt-2 md:mt-0">
+            <div class="glassmorphism p-5 rounded-xl border border-white/5 space-y-2">
+              <p data-i18n="exp.job4_desc" class="text-xs text-slate-300">Merancang aplikasi mobile pemantauan budidaya tambak udang, tata kelola
+                data terpusat, dan script automasi pemrosesan log lapangan.</p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">IoT / Monitoring
+                  App</span>
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">Automation
+                  Scripts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. PT Asli RI -->
+        <div class="relative flex flex-col md:flex-row items-start group">
+          <div
+            class="flex items-center justify-center w-7 h-7 rounded-full bg-slate-700 ring-4 ring-[#060911] z-10 md:absolute md:left-1/2 md:-translate-x-1/2">
+            <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+          </div>
+          <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-10 md:pl-0 mt-3 md:mt-0">
+            <span data-i18n="exp.job5_period" class="text-xs font-mono text-cyan-400 font-semibold">02/2022 – 12/2022</span>
+            <h3 data-i18n="exp.job5_role" class="text-lg font-bold text-white">Mobile Developer (Freelance)</h3>
+            <p class="text-sm text-slate-400">PT Asli RI - Jakarta</p>
+          </div>
+          <div class="w-full md:w-1/2 md:pl-12 pl-10 mt-2 md:mt-0">
+            <div class="glassmorphism p-5 rounded-xl border border-white/5 space-y-2">
+              <p data-i18n="exp.job5_desc" class="text-xs text-slate-300">Membangun platform media sosial dengan integrasi E-KYC ketat, modul
+                kamera kustom, dan optimasi performa native via Android NDK.</p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">E-KYC</span>
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">Android NDK</span>
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">Custom Camera</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Teamwork APAC Pte Ltd -->
+        <div class="relative flex flex-col md:flex-row items-start group">
+          <div
+            class="flex items-center justify-center w-7 h-7 rounded-full bg-slate-700 ring-4 ring-[#060911] z-10 md:absolute md:left-1/2 md:-translate-x-1/2">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+          </div>
+          <div class="w-full md:w-1/2 md:pr-12 md:text-right pl-10 md:pl-0 mt-3 md:mt-0">
+            <span data-i18n="exp.job6_period" class="text-xs font-mono text-cyan-400 font-semibold">04/2021 – 10/2022</span>
+            <h3 data-i18n="exp.job6_role" class="text-lg font-bold text-white">Full Stack Developer</h3>
+            <p class="text-sm text-slate-400">Teamwork APAC Pte Ltd - Singapore</p>
+          </div>
+          <div class="w-full md:w-1/2 md:pl-12 pl-10 mt-2 md:mt-0">
+            <div class="glassmorphism p-5 rounded-xl border border-white/5 space-y-2">
+              <p data-i18n="exp.job6_desc" class="text-xs text-slate-300">Merancang sistem CRM & CSS terintegrasi, menerapkan unit testing
+                menyeluruh, serta mendongkrak retensi keterlibatan pengguna sebesar 40%.</p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">Full Stack</span>
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">CRM / CSS</span>
+                <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-[11px]">+40% Engagement</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Grid -->
+  <section id="skills" class="py-20 border-t border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <h2 data-i18n="skills.subtitle" class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">Peralatan & Kemampuan</h2>
+        <p data-i18n="skills.title" class="text-3xl font-bold text-white">Tech Stack Teruji</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- Skill 1 -->
+        <div class="glassmorphism p-4 rounded-xl border border-white/5 hover:border-cyan-500/30 transition-all">
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-lg bg-cyan-950/60 text-cyan-400"><i data-lucide="smartphone" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="font-bold text-sm text-white">Flutter & Dart</div>
+              <div class="text-[11px] text-slate-400">Mobile Multiplatform</div>
+            </div>
+          </div>
+        </div>
+        <!-- Skill 2 -->
+        <div class="glassmorphism p-4 rounded-xl border border-white/5 hover:border-cyan-500/30 transition-all">
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-lg bg-emerald-950/60 text-emerald-400"><i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="font-bold text-sm text-white">Android NDK & Java</div>
+              <div class="text-[11px] text-slate-400">Native Core & Performance</div>
+            </div>
+          </div>
+        </div>
+        <!-- Skill 3 -->
+        <div class="glassmorphism p-4 rounded-xl border border-white/5 hover:border-cyan-500/30 transition-all">
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-lg bg-cyan-950/60 text-cyan-400"><i data-lucide="git-branch" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="font-bold text-sm text-white">CI/CD & Git</div>
+              <div class="text-[11px] text-slate-400">Deployment Automation</div>
+            </div>
+          </div>
+        </div>
+        <!-- Skill 4 -->
+        <div class="glassmorphism p-4 rounded-xl border border-white/5 hover:border-cyan-500/30 transition-all">
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-lg bg-purple-950/60 text-purple-400"><i data-lucide="database"
+                class="w-5 h-5"></i></div>
+            <div>
+              <div class="font-bold text-sm text-white">MySQL / SQL</div>
+              <div class="text-[11px] text-slate-400">Relational DBMS</div>
+            </div>
+          </div>
+        </div>
+        <!-- Skill 5 -->
+        <div class="glassmorphism p-4 rounded-xl border border-white/5 hover:border-cyan-500/30 transition-all">
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-lg bg-emerald-950/60 text-emerald-400"><i data-lucide="layers"
+                class="w-5 h-5"></i></div>
+            <div>
+              <div class="font-bold text-sm text-white">MongoDB & Firebase</div>
+              <div class="text-[11px] text-slate-400">NoSQL & Realtime Sync</div>
+            </div>
+          </div>
+        </div>
+        <!-- Skill 6 -->
+        <div class="glassmorphism p-4 rounded-xl border border-white/5 hover:border-cyan-500/30 transition-all">
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-lg bg-blue-950/60 text-blue-400"><i data-lucide="code" class="w-5 h-5"></i></div>
+            <div>
+              <div class="font-bold text-sm text-white">PHP (Laravel, CI)</div>
+              <div class="text-[11px] text-slate-400">Backend API Services</div>
+            </div>
+          </div>
+        </div>
+        <!-- Skill 7 -->
+        <div class="glassmorphism p-4 rounded-xl border border-white/5 hover:border-cyan-500/30 transition-all">
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-lg bg-amber-950/60 text-amber-400"><i data-lucide="file-code" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="font-bold text-sm text-white">JavaScript & Web</div>
+              <div class="text-[11px] text-slate-400">HTML5, CSS3, DOM</div>
+            </div>
+          </div>
+        </div>
+        <!-- Skill 8 -->
+        <div class="glassmorphism p-4 rounded-xl border border-white/5 hover:border-cyan-500/30 transition-all">
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-lg bg-rose-950/60 text-rose-400"><i data-lucide="server" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="font-bold text-sm text-white">Server & Migration</div>
+              <div class="text-[11px] text-slate-400">DBMS Infrastructure</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section with Filter -->
+  <section id="projects" class="py-20 bg-slate-950/40 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="mb-10">
+        <h2 data-i18n="projects.subtitle" class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">Showcase Produk & Rekayasa</h2>
+        <p data-i18n="projects.title" class="text-3xl font-bold text-white">Produk Mandiri & Proyek Rekayasa</p>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- FLAGSHIP PRODUCT SPOTLIGHT: BATIKU -->
+      <!-- ============================================ -->
+      <div class="mb-14 rounded-3xl p-6 sm:p-8 lg:p-10 border border-amber-500/30 bg-gradient-to-br from-slate-900/90 via-[#0c1322] to-amber-950/20 glassmorphism relative overflow-hidden shadow-2xl shadow-amber-500/5">
+        <!-- Background Ambient Glow -->
+        <div class="absolute -right-20 -top-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10">
+          <!-- Top Badges -->
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold font-mono bg-gradient-to-r from-amber-500/20 to-amber-400/10 border border-amber-500/40 text-amber-300">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span data-i18n="spotlight.badge_flagship">Flagship Proprietary Product</span>
+              </span>
+              <span data-i18n="spotlight.badge_mobile" class="px-2.5 py-1 rounded-full text-xs font-mono bg-cyan-950/60 border border-cyan-500/30 text-cyan-300">
+                Mobile (Android & iOS)
+              </span>
+              <span data-i18n="spotlight.badge_local" class="px-2.5 py-1 rounded-full text-xs font-mono bg-emerald-950/60 border border-emerald-500/30 text-emerald-300">
+                100% Local-First (Zero Server Cost)
+              </span>
+            </div>
+            <span data-i18n="spotlight.meta_credit" class="text-xs font-mono text-slate-400">Didesain & Direkayasa Mandiri • 2025</span>
+          </div>
+
+          <!-- Main Info -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
+            <div class="lg:col-span-7 space-y-4">
+              <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 shadow-lg shadow-amber-500/20 shrink-0">
+                  <i data-lucide="chef-hat" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight flex items-center gap-2">
+                    <span>BatiKu</span>
+                    <span class="text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 font-mono font-medium">v1.0 Production</span>
+                  </h3>
+                  <p data-i18n="spotlight.tagline" class="text-xs sm:text-sm font-mono text-amber-300/90">"Asisten Cerdas Operasional, Finansial & Pre-Order UMKM Kuliner"</p>
+                </div>
+              </div>
+
+              <p data-i18n="spotlight.desc" data-i18n-html="true" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Platform produktivitas dapur modern yang dirancang untuk mengatasi fenomena <em>"Pesanan Ramai di WhatsApp, Tapi Keuntungan Tidak Terasa"</em> pada bisnis Pre-Order (PO), katering rumahan, dan frozen food. Mengubah proses dapur manual menjadi alur otomatis berkecepatan tinggi: dari materi promosi WhatsApp ber-QRIS otomatis, nota struk gambar resmi, hingga pemisahan modal belanja dan laba riil (<strong>Saldo Bati</strong>).
+              </p>
+
+              <!-- Quick Metrics -->
+              <div class="grid grid-cols-3 gap-3 pt-2">
+                <div class="p-3 rounded-xl bg-slate-900/80 border border-white/5 text-center">
+                  <div class="text-lg sm:text-xl font-bold font-mono text-amber-400" data-i18n="spotlight.metric1_val">10 Detik</div>
+                  <div class="text-[10px] sm:text-xs text-slate-400" data-i18n="spotlight.metric1_lbl">Buat Flyer PO & Nota</div>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-900/80 border border-white/5 text-center">
+                  <div class="text-lg sm:text-xl font-bold font-mono text-emerald-400" data-i18n="spotlight.metric2_val">Rp 0</div>
+                  <div class="text-[10px] sm:text-xs text-slate-400" data-i18n="spotlight.metric2_lbl">Biaya Server / Bulanan</div>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-900/80 border border-white/5 text-center">
+                  <div class="text-lg sm:text-xl font-bold font-mono text-cyan-400" data-i18n="spotlight.metric3_val">100%</div>
+                  <div class="text-[10px] sm:text-xs text-slate-400" data-i18n="spotlight.metric3_lbl">Kontrol Piutang Kasbon</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Feature Pillars -->
+            <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5">
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/5 hover:border-amber-500/30 transition-all flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400 shrink-0">
+                  <i data-lucide="share-2" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="spotlight.pill1_title" class="text-xs font-bold text-white">Broadcast PO Gambar + QRIS</h5>
+                  <p data-i18n="spotlight.pill1_desc" class="text-[11px] text-slate-400 leading-normal">Flyer resolusi tinggi (3x ratio) tersemat QRIS & teks WhatsApp broadcast langsung siap kirim 1-klik.</p>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/5 hover:border-emerald-500/30 transition-all flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 shrink-0">
+                  <i data-lucide="receipt" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="spotlight.pill2_title" class="text-xs font-bold text-white">Nota Gambar Digital (Receipt Card)</h5>
+                  <p data-i18n="spotlight.pill2_desc" class="text-[11px] text-slate-400 leading-normal">Struk tiket belanja premium dengan stempel LUNAS / DP langsung via WhatsApp mengakhiri nota manual kertas.</p>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/5 hover:border-cyan-500/30 transition-all flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0">
+                  <i data-lucide="piggy-bank" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="spotlight.pill3_title" class="text-xs font-bold text-white">Disiplin Saldo Bati (Laba Bersih)</h5>
+                  <p data-i18n="spotlight.pill3_desc" class="text-[11px] text-slate-400 leading-normal">Pemisahan otomatis modal bahan baku vs laba riil agar tidak boncos terpakai konsumsi pribadi.</p>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-white/5 hover:border-indigo-500/30 transition-all flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 shrink-0">
+                  <i data-lucide="snowflake" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="spotlight.pill4_title" class="text-xs font-bold text-white">Kelola Modal Beku (Chiller/Freezer)</h5>
+                  <p data-i18n="spotlight.pill4_desc" class="text-[11px] text-slate-400 leading-normal">Pantau sisa porsi dan valuasi rupiah di lemari pendingin agar aset tidak basi dan siap dijual kembali.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Footer Bar of Spotlight -->
+          <div class="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="text-[10px] font-mono text-slate-400 mr-1">Tech Stack:</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Flutter SDK</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Riverpod 2.0</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-300">SQLite (sqflite)</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Local Notifications</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Google Drive API</span>
+            </div>
+
+            <button onclick="openModal('batiku')"
+              class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 hover:scale-[1.02] transition-all flex items-center justify-center gap-2">
+              <span data-i18n="spotlight.btn_explore">Eksplorasi Fitur & Studi Kasus Lengkap</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Tabs & Grid Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <h3 data-i18n="filter.header_title" class="text-lg font-bold text-white">Eksplorasi Seluruh Proyek</h3>
+          <p data-i18n="filter.header_desc" class="text-xs text-slate-400">Pilih kategori untuk memfilter portofolio berdasarkan domain produk atau industri.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2 p-1.5 glassmorphism rounded-xl border border-white/5 self-start">
+          <button onclick="filterProjects('all')"
+            class="filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all bg-cyan-500 text-slate-950 font-bold"
+            data-filter="all" data-i18n="filter.all">Semua</button>
+          <button onclick="filterProjects('product')"
+            class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all text-slate-400 hover:text-white"
+            data-filter="product" data-i18n="filter.product">⭐ Produk Mandiri & SDK</button>
+          <button onclick="filterProjects('mobile')"
+            class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all text-slate-400 hover:text-white"
+            data-filter="mobile" data-i18n="filter.mobile">Mobile Apps</button>
+          <button onclick="filterProjects('fintech')"
+            class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all text-slate-400 hover:text-white"
+            data-filter="fintech" data-i18n="filter.fintech">Fintech & CI/CD</button>
+          <button onclick="filterProjects('iot')"
+            class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all text-slate-400 hover:text-white"
+            data-filter="iot" data-i18n="filter.iot">IoT & Tools</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+
+        <!-- Project: BatiKu (Flagship Proprietary Product) -->
+        <div
+          class="project-card glassmorphism rounded-2xl overflow-hidden border border-amber-500/30 hover:border-amber-400/60 transition-all flex flex-col relative group"
+          data-category="product mobile">
+          <div class="p-6 flex-1 space-y-3">
+            <div class="flex justify-between items-start">
+              <span
+                class="text-[11px] font-mono text-amber-300 bg-amber-950/70 px-2.5 py-0.5 rounded border border-amber-500/30 flex items-center gap-1">
+                <i data-lucide="sparkles" class="w-3 h-3 text-amber-400"></i>
+                <span data-i18n="card.batiku.badge">Flagship Product</span>
+              </span>
+              <i data-lucide="chef-hat" class="w-5 h-5 text-amber-400"></i>
+            </div>
+            <h3 data-i18n="card.batiku.title" class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">BatiKu (Smart Kitchen & Pre-Order)</h3>
+            <p data-i18n="card.batiku.desc" class="text-xs text-slate-400 leading-relaxed">
+              Asisten operasional UMKM kuliner pre-order (PO) & katering. Generator flyer visual WA ber-QRIS otomatis, nota gambar resmi, pelacak modal beku chiller, dan proteksi saldo laba bersih.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Flutter</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Riverpod 2.0</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">SQLite Offline</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Canvas Repaint</span>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+            <span data-i18n="card.batiku.footer" class="text-xs text-amber-400/90 font-mono">100% Local-First (Free Server)</span>
+            <button onclick="openModal('batiku')"
+              class="text-xs text-amber-400 hover:text-amber-300 hover:underline flex items-center gap-1 font-semibold">
+              <span data-i18n="cards.detail_btn">Detail</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project: DPOS -->
+        <div
+          class="project-card glassmorphism rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/40 transition-all flex flex-col"
+          data-category="product mobile">
+          <div class="p-6 flex-1 space-y-3">
+            <div class="flex justify-between items-start">
+              <span data-i18n="card.dpos.badge"
+                class="text-[11px] font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20">Produk
+                Mandiri • POS</span>
+              <i data-lucide="store" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <h3 data-i18n="card.dpos.title" class="text-lg font-bold text-white">DPOS (Point of Sale & QR Self-Order)</h3>
+            <p data-i18n="card.dpos.desc" class="text-xs text-slate-400 leading-relaxed">
+              Sistem kasir modular F&B & retail terintegrasi printer thermal bluetooth ESC/POS, manajemen inventaris offline-first, dan pemesanan mandiri via dynamic QR code.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Flutter</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Riverpod</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Thermal ESC/POS</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Offline-First</span>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+            <span data-i18n="card.dpos.footer" class="text-xs text-slate-400">Retail & F&B System</span>
+            <button onclick="openModal('dpos')"
+              class="text-xs text-cyan-400 hover:underline flex items-center gap-1 font-semibold">
+              <span data-i18n="cards.detail_btn">Detail</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project: ESC/POS SDK -->
+        <div
+          class="project-card glassmorphism rounded-2xl overflow-hidden border border-white/5 hover:border-emerald-500/40 transition-all flex flex-col"
+          data-category="product iot">
+          <div class="p-6 flex-1 space-y-3">
+            <div class="flex justify-between items-start">
+              <span data-i18n="card.escpos.badge"
+                class="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/20">Developer
+                SDK</span>
+              <i data-lucide="printer" class="w-5 h-5 text-emerald-400"></i>
+            </div>
+            <h3 data-i18n="card.escpos.title" class="text-lg font-bold text-white">Thermal ESC/POS Custom SDK</h3>
+            <p data-i18n="card.escpos.desc" class="text-xs text-slate-400 leading-relaxed">
+              Library Dart kustom berkinerja tinggi untuk manipulasi byte stream ESC/POS, dithering bitmap logo monokrom tajam, dan koneksi BLE 5.0 tanpa lag.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Dart Package</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">BLE 5.0</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Byte Stream</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Dithering</span>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+            <span data-i18n="card.escpos.footer" class="text-xs text-slate-400">Hardware & IoT SDK</span>
+            <button onclick="openModal('escpos')"
+              class="text-xs text-cyan-400 hover:underline flex items-center gap-1 font-semibold">
+              <span data-i18n="cards.detail_btn">Detail</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project: Digital Signage Masjid -->
+        <div
+          class="project-card glassmorphism rounded-2xl overflow-hidden border border-white/5 hover:border-emerald-500/40 transition-all flex flex-col"
+          data-category="product mobile iot">
+          <div class="p-6 flex-1 space-y-3">
+            <div class="flex justify-between items-start">
+              <span data-i18n="card.masjid.badge"
+                class="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/20">Produk
+                Mandiri • Smart TV</span>
+              <i data-lucide="tv" class="w-5 h-5 text-emerald-400"></i>
+            </div>
+            <h3 data-i18n="card.masjid.title" class="text-lg font-bold text-white">Digital Signage & Smart System Masjid</h3>
+            <p data-i18n="card.masjid.desc" class="text-xs text-slate-400 leading-relaxed">
+              Sistem signage Android TV/STB cerdas dan panel remote PWA pengurus DKM. Otomasi transisi adzan-iqamah 4-fase, laporan kas realtime Firestore, overscan-safe, dan native boot Kotlin.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Flutter 3.x</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Android TV</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Cloud Firestore</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Kotlin Native</span>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+            <span data-i18n="card.masjid.footer" class="text-xs text-slate-400">Smart TV & Web PWA</span>
+            <button onclick="openModal('masjid')"
+              class="text-xs text-cyan-400 hover:underline flex items-center gap-1 font-semibold">
+              <span data-i18n="cards.detail_btn">Detail</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 1: Loan Portal CI/CD -->
+        <div
+          class="project-card glassmorphism rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/40 transition-all flex flex-col"
+          data-category="fintech">
+          <div class="p-6 flex-1 space-y-3">
+            <div class="flex justify-between items-start">
+              <span data-i18n="card.loan.badge"
+                class="text-[11px] font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20">Fintech
+                & CI/CD</span>
+              <i data-lucide="zap" class="w-5 h-5 text-amber-400"></i>
+            </div>
+            <h3 data-i18n="card.loan.title" class="text-lg font-bold text-white">Loan Portal & CI/CD Deployment</h3>
+            <p data-i18n="card.loan.desc" class="text-xs text-slate-400 leading-relaxed">
+              Arsitektur portal pinjaman bereputasi tinggi dengan frontend responsif dan pipeline CI/CD instan dari 1
+              hari menjadi 8 menit deploy.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">CI/CD
+                Automation</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Web App</span>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+            <span data-i18n="card.loan.footer" class="text-xs text-slate-400">PT Beruang Maia Raya</span>
+            <button onclick="openModal('loan-portal')"
+              class="text-xs text-cyan-400 hover:underline flex items-center gap-1 font-semibold">
+              <span data-i18n="cards.detail_btn">Detail</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2: Social Media & E-KYC -->
+        <div
+          class="project-card glassmorphism rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/40 transition-all flex flex-col"
+          data-category="mobile">
+          <div class="p-6 flex-1 space-y-3">
+            <div class="flex justify-between items-start">
+              <span data-i18n="card.ekyc.badge"
+                class="text-[11px] font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20">Mobile
+                & Native NDK</span>
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
+            </div>
+            <h3 data-i18n="card.ekyc.title" class="text-lg font-bold text-white">Social Platform with E-KYC Module</h3>
+            <p data-i18n="card.ekyc.desc" class="text-xs text-slate-400 leading-relaxed">
+              Aplikasi mobile dengan sistem verifikasi identitas (E-KYC), modul kamera kustom, serta optimasi pemrosesan
+              citra via Android NDK.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Android
+                NDK</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Camera
+                API</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">E-KYC</span>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+            <span data-i18n="card.ekyc.footer" class="text-xs text-slate-400">PT Asli RI</span>
+            <button onclick="openModal('ekyc')"
+              class="text-xs text-cyan-400 hover:underline flex items-center gap-1 font-semibold">
+              <span data-i18n="cards.detail_btn">Detail</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 3: Shrimp Farm Monitoring -->
+        <div
+          class="project-card glassmorphism rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/40 transition-all flex flex-col"
+          data-category="iot">
+          <div class="p-6 flex-1 space-y-3">
+            <div class="flex justify-between items-start">
+              <span data-i18n="card.shrimp.badge"
+                class="text-[11px] font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20">Aquaculture
+                IoT</span>
+              <i data-lucide="activity" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <h3 data-i18n="card.shrimp.title" class="text-lg font-bold text-white">Shrimp Farm Monitoring System</h3>
+            <p data-i18n="card.shrimp.desc" class="text-xs text-slate-400 leading-relaxed">
+              Solusi monitoring operasional tambak udang terintegrasi data log, metrik kualitas air, dan script
+              otomatisasi manajemen data lapangan.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Mobile
+                Apps</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Automation
+                Scripts</span>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+            <span data-i18n="card.shrimp.footer" class="text-xs text-slate-400">PT Delos Maritim</span>
+            <button onclick="openModal('shrimp-iot')"
+              class="text-xs text-cyan-400 hover:underline flex items-center gap-1 font-semibold">
+              <span data-i18n="cards.detail_btn">Detail</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 4: Digital Banking Platform -->
+        <div
+          class="project-card glassmorphism rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/40 transition-all flex flex-col"
+          data-category="fintech">
+          <div class="p-6 flex-1 space-y-3">
+            <div class="flex justify-between items-start">
+              <span data-i18n="card.banking.badge"
+                class="text-[11px] font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20">Banking
+                Tech</span>
+              <i data-lucide="credit-card" class="w-5 h-5 text-purple-400"></i>
+            </div>
+            <h3 data-i18n="card.banking.title" class="text-lg font-bold text-white">Digital Banking Platform</h3>
+            <p data-i18n="card.banking.desc" class="text-xs text-slate-400 leading-relaxed">
+              Memimpin 3 developer dalam refactoring arsitektur kode dan pengembangan fitur perbankan digital yang aman
+              dan skalabel.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Team Lead</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Architecture
+                Refactor</span>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+            <span data-i18n="card.banking.footer" class="text-xs text-slate-400">PT Beruang Maia Raya</span>
+            <button onclick="openModal('digital-banking')"
+              class="text-xs text-cyan-400 hover:underline flex items-center gap-1 font-semibold">
+              <span data-i18n="cards.detail_btn">Detail</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 5: AI-Driven Enterprise App -->
+        <div
+          class="project-card glassmorphism rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/40 transition-all flex flex-col"
+          data-category="mobile">
+          <div class="p-6 flex-1 space-y-3">
+            <div class="flex justify-between items-start">
+              <span data-i18n="card.ai.badge"
+                class="text-[11px] font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20">AI
+                & Enterprise</span>
+              <i data-lucide="sparkles" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <h3 data-i18n="card.ai.title" class="text-lg font-bold text-white">AI-Powered B2B & B2C Mobile App</h3>
+            <p data-i18n="card.ai.desc" class="text-xs text-slate-400 leading-relaxed">
+              Implementasi AI pada mobile app untuk meningkatkan otomatisasi dan interaksi pengguna B2B maupun B2C di
+              iOS dan Android.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">AI
+                Features</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Flutter
+                iOS/Android</span>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+            <span data-i18n="card.ai.footer" class="text-xs text-slate-400">PT Aplikasi Lintas Bangsa (Ximply)</span>
+            <button onclick="openModal('ai-app')"
+              class="text-xs text-cyan-400 hover:underline flex items-center gap-1 font-semibold">
+              <span data-i18n="cards.detail_btn">Detail</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 6: Best Informatics Project Award -->
+        <div
+          class="project-card glassmorphism rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/40 transition-all flex flex-col"
+          data-category="iot">
+          <div class="p-6 flex-1 space-y-3">
+            <div class="flex justify-between items-start">
+              <span data-i18n="card.award.badge"
+                class="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/20">Academic
+                Award</span>
+              <i data-lucide="award" class="w-5 h-5 text-amber-400"></i>
+            </div>
+            <h3 data-i18n="card.award.title" class="text-lg font-bold text-white">Awarded Best Project Informatics</h3>
+            <p data-i18n="card.award.desc" class="text-xs text-slate-400 leading-relaxed">
+              Proyek akhir rekayasa perangkat lunak terpilih sebagai proyek terbaik di Politeknik Negeri Indramayu
+              dengan keunggulan fungsionalitas dan arsitektur.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Award
+                Winning</span>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Software
+                Engineering</span>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-900/60 border-t border-slate-800/80 flex justify-between items-center">
+            <span data-i18n="card.award.footer" class="text-xs text-slate-400">Politeknik Negeri Indramayu</span>
+            <button onclick="openModal('best-award')"
+              class="text-xs text-cyan-400 hover:underline flex items-center gap-1 font-semibold">
+              <span data-i18n="cards.detail_btn">Detail</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 border-t border-slate-800/60 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <h2 data-i18n="contact.subtitle" class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">Mari Berkolaborasi</h2>
+        <p data-i18n="contact.title" class="text-3xl font-bold text-white">Hubungi Saya Langsung</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <!-- Contact Info -->
+        <div class="lg:col-span-5 space-y-6">
+          <p data-i18n="contact.desc" class="text-slate-400 text-sm leading-relaxed">
+            Terbuka untuk posisi Software Engineer, Senior Mobile Developer, konsultasi arsitektur aplikasi mobile, atau
+            proyek berdaya jangkau tinggi.
+          </p>
+
+          <div class="space-y-4 font-mono text-xs">
+            <a href="mailto:diyanto2911@gmail.com"
+              class="flex items-center gap-3 p-3.5 rounded-xl glassmorphism border border-white/5 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition-all">
+              <i data-lucide="mail" class="w-4 h-4 text-cyan-400"></i>
+              <span>diyanto2911@gmail.com</span>
+            </a>
+            <a href="https://wa.me/6285624277920" target="_blank" rel="noreferrer"
+              class="flex items-center gap-3 p-3.5 rounded-xl glassmorphism border border-white/5 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition-all">
+              <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
+              <span>+62 856-2427-7920</span>
+            </a>
+            <div class="flex items-center gap-3 p-3.5 rounded-xl glassmorphism border border-white/5 text-slate-300">
+              <i data-lucide="map-pin" class="w-4 h-4 text-rose-400"></i>
+              <span>Indramayu, West Java, Indonesia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="lg:col-span-7">
+          <form id="contact-form" class="glassmorphism p-6 rounded-2xl border border-white/5 space-y-4"
+            onsubmit="handleFormSubmit(event)">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label data-i18n="contact.name_label" class="block text-xs font-mono text-slate-400 mb-1">Nama Lengkap</label>
+                <input type="text" required placeholder="John Doe" data-i18n-placeholder="contact.name_placeholder"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors" />
+              </div>
+              <div>
+                <label data-i18n="contact.email_label" class="block text-xs font-mono text-slate-400 mb-1">Email / Kontak</label>
+                <input type="email" required placeholder="john@example.com" data-i18n-placeholder="contact.email_placeholder"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors" />
+              </div>
+            </div>
+            <div>
+              <label data-i18n="contact.subject_label" class="block text-xs font-mono text-slate-400 mb-1">Subjek Pesan</label>
+              <input type="text" required placeholder="Tawaran Kolaborasi / Remote Job" data-i18n-placeholder="contact.subject_placeholder"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors" />
+            </div>
+            <div>
+              <label data-i18n="contact.message_label" class="block text-xs font-mono text-slate-400 mb-1">Pesan</label>
+              <textarea rows="4" required placeholder="Tuliskan kebutuhan proyek atau diskusi teknis..." data-i18n-placeholder="contact.message_placeholder"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"></textarea>
+            </div>
+            <button type="submit" id="submit-btn"
+              class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20 hover:scale-[1.01] transition-all flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span data-i18n="contact.submit_btn">Kirim Pesan Sekarang</span>
+            </button>
+            <div id="form-feedback" data-i18n="contact.feedback"
+              class="hidden p-3 rounded-xl text-center text-xs font-mono bg-emerald-950/60 border border-emerald-500/40 text-emerald-300">
+              Pesan berhasil disiapkan! Mengalihkan ke email client...
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-slate-800/80 text-center text-xs text-slate-400 font-mono">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div data-i18n="footer.copyright">© 2026 Diyanto. Software Engineer & Mobile Specialist.</div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="mailto:diyanto2911@gmail.com" class="hover:text-cyan-400">Email</a>
+        <span>•</span>
+        <a href="https://wa.me/6285624277920" class="hover:text-cyan-400">WhatsApp</a>
+        <span>•</span>
+        <a href="#hero" data-i18n="footer.back_to_top" class="hover:text-cyan-400">Kembali ke Atas ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Detail Modal -->
+  <div id="detail-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div
+      class="glassmorphism max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-2xl p-6 sm:p-8 border border-white/10 space-y-5 relative animate-in fade-in zoom-in-95 duration-200">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <span id="modal-badge"
+            class="inline-block text-[11px] font-mono text-cyan-400 bg-cyan-950/70 px-2.5 py-0.5 rounded border border-cyan-500/30 mb-2">Showcase Proyek</span>
+          <h3 id="modal-title" class="text-xl sm:text-2xl font-bold text-white">Judul Proyek</h3>
+          <p id="modal-subtitle" class="text-xs sm:text-sm font-mono text-slate-400 mt-1">Perusahaan / Entitas</p>
+        </div>
+        <button onclick="closeModal()"
+          class="p-1.5 rounded-lg text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-700 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div>
+        <h4 data-i18n="modal.summary_title" class="text-xs font-mono uppercase tracking-wider text-cyan-400 mb-2">Ringkasan Proyek</h4>
+        <p id="modal-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+      </div>
+
+      <!-- Feature List Section -->
+      <div id="modal-features-container" class="space-y-2.5">
+        <h4 data-i18n="modal.features_title" class="text-xs font-mono uppercase tracking-wider text-emerald-400">Fitur & Arsitektur Utama</h4>
+        <ul id="modal-features" class="space-y-2 text-xs sm:text-sm text-slate-300"></ul>
+      </div>
+
+      <!-- Business Impact / Result -->
+      <div id="modal-impact-container" class="p-3.5 rounded-xl bg-slate-900/80 border border-cyan-500/20">
+        <div class="text-[11px] font-mono text-cyan-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+          <i data-lucide="trending-up" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span data-i18n="modal.impact_title">Dampak Bisnis & Nilai Solusi</span>
+        </div>
+        <p id="modal-impact" class="text-xs sm:text-sm text-slate-200 leading-relaxed"></p>
+      </div>
+
+      <div>
+        <h4 data-i18n="modal.tech_title" class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">Teknologi Digunakan</h4>
+        <div id="modal-tags" class="flex flex-wrap gap-1.5"></div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-800 flex justify-end">
+        <button onclick="closeModal()" data-i18n="modal.close_btn"
+          class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs sm:text-sm font-medium transition-colors">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

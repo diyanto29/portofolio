@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halaman Tidak Ditemukan (404) | Diyanto Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#060911] text-slate-200 min-h-screen flex items-center justify-center p-4">
+  <div class="max-w-md w-full text-center space-y-6 bg-slate-900/60 p-8 rounded-2xl border border-white/10 backdrop-blur-md shadow-2xl">
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
+      <i data-lucide="compass" class="w-8 h-8"></i>
+    </div>
+    <div class="space-y-2">
+      <span class="text-xs font-mono text-cyan-400 tracking-widest uppercase">Error 404</span>
+      <h1 class="text-3xl font-extrabold text-white">Halaman Tidak Ditemukan</h1>
+      <p class="text-sm text-slate-400">
+        Halaman yang Anda tuju mungkin telah dipindahkan atau tautan yang Anda klik tidak tersedia.
+      </p>
+    </div>
+    <div>
+      <a href="./" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-medium text-sm hover:opacity-90 transition-opacity shadow-lg shadow-cyan-500/20">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>Kembali ke Beranda</span>
+      </a>
+    </div>
+    <p class="text-xs text-slate-500 font-mono">
+      Mengalihkan otomatis dalam <span id="countdown">5</span> detik...
+    </p>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    let sec = 5;
+    const el = document.getElementById('countdown');
+    const timer = setInterval(() => {
+      sec--;
+      if (el) el.innerText = sec;
+      if (sec <= 0) {
+        clearInterval(timer);
+        window.location.href = './';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

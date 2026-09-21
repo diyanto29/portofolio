@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060911" />
+      <stop offset="50%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#04060a" />
+    </linearGradient>
+    <linearGradient id="cyanEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <radialGradient id="glowEffect" cx="20%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#060911" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  <circle cx="250" cy="200" r="400" fill="url(#glowEffect)" />
+
+  <!-- Outer Border -->
+  <rect x="24" y="24" width="1152" height="582" rx="24" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
+
+  <!-- Logo Avatar -->
+  <g transform="translate(100, 110)">
+    <rect width="90" height="90" rx="24" fill="url(#cyanEmerald)" />
+    <text x="45" y="60" font-family="'Inter', sans-serif" font-size="52" font-weight="900" fill="#ffffff" text-anchor="middle">D</text>
+  </g>
+
+  <!-- Name & Headline -->
+  <text x="100" y="260" font-family="'Inter', sans-serif" font-size="64" font-weight="800" fill="#ffffff" letter-spacing="-1">Diyanto</text>
+  <text x="100" y="315" font-family="'Inter', sans-serif" font-size="32" font-weight="600" fill="#06b6d4" letter-spacing="-0.5">Software Engineer &amp; Mobile Specialist</text>
+
+  <!-- Description -->
+  <text x="100" y="380" font-family="'Inter', sans-serif" font-size="22" font-weight="400" fill="#94a3b8">
+    Specialized in Flutter, Dart, High-Performance Mobile Apps &amp; AI Integration.
+  </text>
+  <text x="100" y="415" font-family="'Inter', sans-serif" font-size="22" font-weight="400" fill="#94a3b8">
+    Proven track record in Fintech, IoT &amp; Scalable Mobile Architecture.
+  </text>
+
+  <!-- Tech Badges -->
+  <g transform="translate(100, 480)">
+    <!-- Badge 1 -->
+    <rect x="0" y="0" width="130" height="42" rx="10" fill="#111827" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.4"/>
+    <text x="65" y="27" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" fill="#06b6d4" text-anchor="middle">Flutter</text>
+
+    <!-- Badge 2 -->
+    <rect x="150" y="0" width="110" height="42" rx="10" fill="#111827" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.4"/>
+    <text x="205" y="27" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" fill="#06b6d4" text-anchor="middle">Dart</text>
+
+    <!-- Badge 3 -->
+    <rect x="280" y="0" width="180" height="42" rx="10" fill="#111827" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.4"/>
+    <text x="370" y="27" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" fill="#10b981" text-anchor="middle">Android NDK</text>
+
+    <!-- Badge 4 -->
+    <rect x="480" y="0" width="180" height="42" rx="10" fill="#111827" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.4"/>
+    <text x="570" y="27" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" fill="#10b981" text-anchor="middle">CI/CD Pipeline</text>
+
+    <!-- Badge 5 -->
+    <rect x="680" y="0" width="180" height="42" rx="10" fill="#111827" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.4"/>
+    <text x="770" y="27" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" fill="#06b6d4" text-anchor="middle">AI Integration</text>
+  </g>
+</svg>

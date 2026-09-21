@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diyanto | Senior Mobile & Software Developer</title>
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN with custom configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            dark: '#0B0F19',
+                            darkcard: '#111827',
+                            darkborder: '#1F2937',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Core Styles -->
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+
+        .light ::-webkit-scrollbar-track {
+            background: #F3F4F6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 9999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .light .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .neon-border-glow:hover {
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.35);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 text-slate-800 dark:bg-brand-dark dark:text-slate-200 antialiased selection:bg-brand-cyan/30 selection:text-brand-cyan transition-colors duration-300">
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Name -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-emerald flex items-center justify-center font-mono font-black text-slate-950 text-lg shadow-lg shadow-brand-cyan/20 group-hover:scale-105 transition-transform">
+                        D
+                    </div>
+                    <div>
+                        <div
+                            class="font-bold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5">
+                            <span>Diyanto</span>
+                            <span
+                                class="text-xs px-2 py-0.5 rounded-full font-mono bg-cyan-500/10 text-brand-cyan border border-brand-cyan/20">TI</span>
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Mobile & Software Dev</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center gap-1 glass-card px-4 py-1.5 rounded-full">
+                    <a href="#about"
+                        class="px-4 py-2 text-sm font-medium hover:text-brand-cyan transition-colors">Tentang</a>
+                    <a href="#skills"
+                        class="px-4 py-2 text-sm font-medium hover:text-brand-cyan transition-colors">Keahlian</a>
+                    <a href="#projects"
+                        class="px-4 py-2 text-sm font-medium hover:text-brand-cyan transition-colors">Portofolio</a>
+                    <a href="#timeline"
+                        class="px-4 py-2 text-sm font-medium hover:text-brand-cyan transition-colors">Pengalaman</a>
+                    <a href="#contact"
+                        class="px-4 py-2 text-sm font-medium hover:text-brand-cyan transition-colors">Kontak</a>
+                </nav>
+
+                <!-- Right Side Actions: Theme Switcher & Contact Button -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button id="themeToggle" aria-label="Toggle Theme"
+                        class="p-2.5 rounded-xl glass-card text-slate-600 dark:text-slate-300 hover:text-brand-cyan dark:hover:text-brand-cyan transition-colors">
+                        <i data-lucide="moon" id="moonIcon" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="sun" id="sunIcon" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    <a href="#contact"
+                        class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-emerald text-slate-950 font-semibold text-sm hover:opacity-95 shadow-md shadow-cyan-500/20 hover:scale-[1.02] transition-all flex items-center gap-2">
+                        <span>Mari Diskusi</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <div class="flex items-center gap-2 md:hidden">
+                    <button id="mobileThemeToggle" class="p-2 rounded-lg glass-card text-slate-600 dark:text-slate-300">
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    <button id="mobileMenuBtn" aria-label="Open Mobile Menu"
+                        class="p-2 rounded-lg glass-card text-slate-600 dark:text-slate-300">
+                        <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu"
+            class="hidden md:hidden glass-card border-t border-slate-200/50 dark:border-slate-800 px-6 py-6 transition-all duration-300 shadow-2xl">
+            <div class="flex flex-col gap-4">
+                <a href="#about"
+                    class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-300 hover:text-brand-cyan">Tentang
+                    Saya</a>
+                <a href="#skills"
+                    class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-300 hover:text-brand-cyan">Keahlian
+                    Teknis</a>
+                <a href="#projects"
+                    class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-300 hover:text-brand-cyan">Proyek
+                    & Karya</a>
+                <a href="#timeline"
+                    class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-300 hover:text-brand-cyan">Milestones
+                    & Pengalaman</a>
+                <a href="#contact"
+                    class="mobile-nav-link text-base font-medium text-slate-700 dark:text-slate-300 hover:text-brand-cyan">Hubungi
+                    Saya</a>
+                <a href="#contact"
+                    class="mt-2 text-center py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-emerald text-slate-950 font-bold">
+                    Mulai Kolaborasi
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <!-- Ambient Glow Balls -->
+        <div
+            class="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-cyan/15 rounded-full blur-3xl -z-10 pointer-events-none animate-blob">
+        </div>
+        <div class="absolute top-44 left-1/4 w-80 h-80 bg-brand-emerald/10 rounded-full blur-3xl -z-10 pointer-events-none animate-blob"
+            style="animation-delay: 2s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Hero Texts -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div
+                        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-brand-cyan/30 text-xs sm:text-sm font-mono text-brand-cyan mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
+                        Tersedia untuk Pekerjaan Full-time & Konsultasi Proyek
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                        Membangun Solusi <br class="hidden sm:block" />
+                        <span
+                            class="bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan via-teal-400 to-brand-emerald">
+                            Mobile, Hardware & AI
+                        </span>
+                        <br />Berkelas Enterprise.
+                    </h1>
+
+                    <p
+                        class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Halo, saya <strong class="text-slate-900 dark:text-white font-semibold">Diyanto</strong>. Senior
+                        Cross-Platform Mobile Developer & Software Engineer dengan spesialisasi ekosistem <strong
+                            class="text-brand-cyan font-semibold">Flutter</strong>, integrasi hardware real-time
+                        (Bluetooth POS, RTSP Streaming), serta implementasi AI.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
+                        <a href="#projects"
+                            class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-emerald text-slate-950 font-bold text-base hover:opacity-95 shadow-lg shadow-cyan-500/25 hover:scale-[1.02] transition-all flex items-center gap-2">
+                            <i data-lucide="folder-code" class="w-5 h-5"></i>
+                            <span>Jelajahi Proyek</span>
+                        </a>
+                        <a href="#contact"
+                            class="px-7 py-3.5 rounded-xl glass-card font-semibold text-base hover:border-brand-cyan/50 hover:text-brand-cyan transition-all flex items-center gap-2">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            <span>Hubungi Saya</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Tech Stack Badges -->
+                    <div class="pt-6 border-t border-slate-200 dark:border-slate-800">
+                        <p
+                            class="text-xs uppercase tracking-wider font-mono text-slate-600 dark:text-slate-300 mb-3 font-semibold">
+                            Spesialisasi Inti:</p>
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+                            <span
+                                class="px-3 py-1 text-xs font-mono rounded-lg glass-card border border-slate-300 dark:border-slate-700">Flutter
+                                / Dart</span>
+                            <span
+                                class="px-3 py-1 text-xs font-mono rounded-lg glass-card border border-slate-300 dark:border-slate-700">Riverpod
+                                & BLoC</span>
+                            <span
+                                class="px-3 py-1 text-xs font-mono rounded-lg glass-card border border-slate-300 dark:border-slate-700">Thermal
+                                / Bluetooth ESC/POS</span>
+                            <span
+                                class="px-3 py-1 text-xs font-mono rounded-lg glass-card border border-slate-300 dark:border-slate-700">Deep
+                                Learning / AI</span>
+                            <span
+                                class="px-3 py-1 text-xs font-mono rounded-lg glass-card border border-slate-300 dark:border-slate-700">FFmpeg
+                                & Media Ops</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic / Interactive Card -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Decorative Terminal Window -->
+                        <div class="glass-card rounded-2xl overflow-hidden shadow-2xl border border-slate-700/50">
+                            <!-- Window Bar -->
+                            <div
+                                class="px-4 py-3 bg-slate-900/80 border-b border-slate-800 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                                </div>
+                                <div class="font-mono text-xs text-slate-400">diyanto_profile.dart</div>
+                                <div class="w-4"></div>
+                            </div>
+                            <!-- Code Preview Area -->
+                            <div
+                                class="p-6 font-mono text-xs sm:text-sm text-slate-300 space-y-2.5 overflow-x-auto bg-[#070b14]/90">
+                                <p class="text-slate-500">// Status: Siap Membangun Aplikasi Skala Besar</p>
+                                <p><span class="text-brand-cyan">class</span> <span
+                                        class="text-emerald-400">SeniorEngineer</span> {</p>
+                                <p class="pl-4"><span class="text-brand-cyan">final</span> String name = <span
+                                        class="text-amber-300">'Diyanto'</span>;</p>
+                                <p class="pl-4"><span class="text-brand-cyan">final</span> int experienceYears = <span
+                                        class="text-purple-400">5</span>;</p>
+                                <p class="pl-4"><span class="text-brand-cyan">final</span> List&lt;String&gt; focus = [
+                                </p>
+                                <p class="pl-8 text-amber-300">'Production Flutter Apps',</p>
+                                <p class="pl-8 text-amber-300">'Hardware/POS Integration',</p>
+                                <p class="pl-8 text-amber-300">'AI Model Deployment'</p>
+                                <p class="pl-4">];</p>
+                                <p class="pl-4"><span class="text-brand-cyan">bool</span> deliverHighPerformanceCode()
+                                    =&gt; <span class="text-brand-cyan">true</span>;</p>
+                                <p>}</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Card 1 -->
+                        <div
+                            class="absolute -bottom-6 -left-6 glass-card p-4 rounded-xl border border-brand-cyan/30 shadow-xl hidden sm:flex items-center gap-3">
+                            <div class="p-2.5 rounded-lg bg-brand-cyan/20 text-brand-cyan">
+                                <i data-lucide="smartphone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Arsitektur Mobile</p>
+                                <p class="text-sm font-bold text-slate-900 dark:text-white">Clean & Scalable</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Card 2 -->
+                        <div
+                            class="absolute -top-6 -right-6 glass-card p-4 rounded-xl border border-brand-emerald/30 shadow-xl hidden sm:flex items-center gap-3">
+                            <div class="p-2.5 rounded-lg bg-brand-emerald/20 text-brand-emerald">
+                                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Pengalaman Lapangan</p>
+                                <p class="text-sm font-bold text-slate-900 dark:text-white">5+ Tahun Aktif</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 relative border-t border-slate-200/50 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan font-bold mb-2">Tentang Saya</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Kombinasi Pengalaman Mobile & Ketelitian
+                    Teknis</h3>
+                <p class="mt-4 text-slate-600 dark:text-slate-400 text-base">
+                    Berpengalaman dalam mentransformasi kebutuhan bisnis kompleks menjadi produk digital yang cepat,
+                    tangguh, dan mudah digunakan pengguna akhir.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl neon-border-glow transition-all duration-300">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-brand-cyan/15 text-brand-cyan flex items-center justify-center mb-6">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Cross-Platform Architecture</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Spesialisasi dalam State Management modern (Riverpod, BLoC), Clean Architecture, Offline-First
+                        synchronization, serta optimalisasi performa rendering 60-120 FPS di iOS dan Android.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl neon-border-glow transition-all duration-300">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-brand-emerald/15 text-brand-emerald flex items-center justify-center mb-6">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Hardware & POS Integration</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Keahlian praktis menghubungkan aplikasi mobile dengan printer thermal Bluetooth (ESC/POS command
+                        sets), kamera pemantau CCTV / RTSP video streaming, barcode/RFID scanners, hingga IoT gateway.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl neon-border-glow transition-all duration-300">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center mb-6">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">AI & Media Processing</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Eksplorasi computer vision dan deep learning (seperti model deteksi objek Swin Transformer),
+                        integrasi pipeline FFmpeg untuk auto-reframing video, dan pemanfaatan LLM untuk automasi alur
+                        kerja.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-slate-100/50 dark:bg-slate-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan font-bold mb-2">Keahlian
+                        Teknis</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Teknologi & Alat yang Saya Gunakan
+                    </h3>
+                </div>
+                <p class="mt-4 md:mt-0 text-slate-500 text-sm max-w-md">
+                    Terus memperbarui stack teknologi untuk memastikan efisiensi penulisan kode dan keandalan sistem
+                    jangka panjang.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Skill Group 1 -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
+                        <div class="p-2 rounded-lg bg-blue-500/15 text-blue-400">
+                            <i data-lucide="smartphone" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-lg">Mobile Development</h4>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>Flutter & Dart</span>
+                                <span class="text-brand-cyan">95%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-brand-cyan to-brand-emerald rounded-full"
+                                    style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>State Management (Riverpod / BLoC)</span>
+                                <span class="text-brand-cyan">92%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-brand-cyan to-brand-emerald rounded-full"
+                                    style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>Clean Architecture & TDD/Testing</span>
+                                <span class="text-brand-cyan">88%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-brand-cyan to-brand-emerald rounded-full"
+                                    style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>Native Platform Channels (Android/iOS)</span>
+                                <span class="text-brand-cyan">80%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-brand-cyan to-brand-emerald rounded-full"
+                                    style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Group 2 -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
+                        <div class="p-2 rounded-lg bg-emerald-500/15 text-emerald-400">
+                            <i data-lucide="server" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-lg">Backend & Developer Tools</h4>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>RESTful APIs & GraphQL Integration</span>
+                                <span class="text-brand-emerald">90%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-teal-400 to-brand-emerald rounded-full"
+                                    style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>Git Flow, CI/CD, Fastlane & GitHub Actions</span>
+                                <span class="text-brand-emerald">85%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-teal-400 to-brand-emerald rounded-full"
+                                    style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>Python & Scripting Automation</span>
+                                <span class="text-brand-emerald">82%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-teal-400 to-brand-emerald rounded-full"
+                                    style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>SQLite, Hive, Isar & Firebase</span>
+                                <span class="text-brand-emerald">88%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-teal-400 to-brand-emerald rounded-full"
+                                    style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Group 3 -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
+                        <div class="p-2 rounded-lg bg-purple-500/15 text-purple-400">
+                            <i data-lucide="cpu" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-lg">Hardware, Media & AI</h4>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>ESC/POS Bluetooth & Thermal Printing</span>
+                                <span class="text-purple-400">92%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                                    style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>RTSP Video Streaming & IP Camera</span>
+                                <span class="text-purple-400">84%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                                    style="width: 84%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>FFmpeg Processing & Video Pipeline</span>
+                                <span class="text-purple-400">80%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                                    style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-mono mb-1">
+                                <span>Deep Learning Inference (Swin / YOLO)</span>
+                                <span class="text-purple-400">78%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                                    style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan font-bold mb-2">Portofolio
+                    Pilihan</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Karya & Proyek Terpilih</h3>
+                <p class="mt-4 text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+                    Beberapa proyek nyata yang telah saya kembangkan, mulai dari aplikasi enterprise, sistem kasir POS,
+                    hingga integrasi model machine learning.
+                </p>
+
+                <!-- Project Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8" id="projectFilter">
+                    <button data-filter="all"
+                        class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-brand-cyan text-slate-950">Semua
+                        Proyek</button>
+                    <button data-filter="mobile"
+                        class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all glass-card hover:text-brand-cyan">Mobile
+                        App</button>
+                    <button data-filter="pos"
+                        class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all glass-card hover:text-brand-cyan">SaaS
+                        / POS</button>
+                    <button data-filter="ai"
+                        class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all glass-card hover:text-brand-cyan">AI
+                        & Tools</button>
+                </div>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                <!-- Project 1: DPOS -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 neon-border-glow"
+                    data-category="pos mobile">
+                    <div
+                        class="h-48 bg-gradient-to-br from-cyan-900/60 to-slate-900 relative flex items-center justify-center p-6 border-b border-slate-800">
+                        <div class="text-center">
+                            <span class="inline-block p-3 rounded-2xl bg-brand-cyan/20 text-brand-cyan mb-2">
+                                <i data-lucide="store" class="w-8 h-8"></i>
+                            </span>
+                            <p class="font-mono text-xs text-brand-cyan">DPOS Systems</p>
+                        </div>
+                        <span
+                            class="absolute top-4 right-4 px-2.5 py-1 text-xs font-mono rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Production</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">DPOS (Smart Point of Sale & QR Order)</h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3">
+                                Sistem POS modern terintegrasi dengan printer thermal bluetooth ESC/POS, manajemen
+                                inventaris offline-first, laporan penjualan realtime, dan pemesanan mandiri pelanggan
+                                via QR code.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Flutter</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Riverpod</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Bluetooth
+                                    POS</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Isar
+                                    DB</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('dpos')"
+                            class="w-full py-2.5 rounded-xl border border-brand-cyan/30 text-brand-cyan hover:bg-brand-cyan hover:text-slate-950 font-semibold text-sm transition-colors flex items-center justify-center gap-2">
+                            <span>Lihat Detail Fitur</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2: Cupcake HR & NAS Online -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 neon-border-glow"
+                    data-category="mobile">
+                    <div
+                        class="h-48 bg-gradient-to-br from-emerald-900/60 to-slate-900 relative flex items-center justify-center p-6 border-b border-slate-800">
+                        <div class="text-center">
+                            <span class="inline-block p-3 rounded-2xl bg-brand-emerald/20 text-brand-emerald mb-2">
+                                <i data-lucide="users" class="w-8 h-8"></i>
+                            </span>
+                            <p class="font-mono text-xs text-brand-emerald">HR & Enterprise Suite</p>
+                        </div>
+                        <span
+                            class="absolute top-4 right-4 px-2.5 py-1 text-xs font-mono rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Enterprise</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Cupcake HR & NAS Online</h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3">
+                                Aplikasi mobile operasional karyawan perusahaan skala besar, mencakup presensi berbasis
+                                Geofencing GPS & pengenalan wajah anti-spoof, pengajuan cuti otomatis, hingga
+                                sinkronisasi slip gaji aman.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Flutter</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">BLoC</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Geofencing</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">REST
+                                    API</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('cupcake')"
+                            class="w-full py-2.5 rounded-xl border border-brand-emerald/30 text-brand-emerald hover:bg-brand-emerald hover:text-slate-950 font-semibold text-sm transition-colors flex items-center justify-center gap-2">
+                            <span>Lihat Detail Fitur</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3: Road Pothole Detection -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 neon-border-glow"
+                    data-category="ai mobile">
+                    <div
+                        class="h-48 bg-gradient-to-br from-purple-900/60 to-slate-900 relative flex items-center justify-center p-6 border-b border-slate-800">
+                        <div class="text-center">
+                            <span class="inline-block p-3 rounded-2xl bg-purple-500/20 text-purple-400 mb-2">
+                                <i data-lucide="scan-line" class="w-8 h-8"></i>
+                            </span>
+                            <p class="font-mono text-xs text-purple-300">Deep Learning Vision</p>
+                        </div>
+                        <span
+                            class="absolute top-4 right-4 px-2.5 py-1 text-xs font-mono rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">AI
+                            Research</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Road Pothole Detection</h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3">
+                                Sistem deteksi kerusakan dan lubang jalan otomatis memanfaatkan model Swin Transformer &
+                                YOLO. Dioptimasi untuk inferensi real-time di perangkat mobile dengan geotagging
+                                koordinat akurat.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Swin
+                                    Transformer</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">PyTorch
+                                    / TFLite</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Flutter</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">OpenCV</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('pothole')"
+                            class="w-full py-2.5 rounded-xl border border-purple-400/30 text-purple-400 hover:bg-purple-500 hover:text-white font-semibold text-sm transition-colors flex items-center justify-center gap-2">
+                            <span>Lihat Detail Fitur</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4: Media Auto-Reframe & AI Tools -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 neon-border-glow"
+                    data-category="ai">
+                    <div
+                        class="h-48 bg-gradient-to-br from-amber-900/60 to-slate-900 relative flex items-center justify-center p-6 border-b border-slate-800">
+                        <div class="text-center">
+                            <span class="inline-block p-3 rounded-2xl bg-amber-500/20 text-amber-400 mb-2">
+                                <i data-lucide="video" class="w-8 h-8"></i>
+                            </span>
+                            <p class="font-mono text-xs text-amber-300">Automated Video Pipeline</p>
+                        </div>
+                        <span
+                            class="absolute top-4 right-4 px-2.5 py-1 text-xs font-mono rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">Automation</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Media Auto-Reframe Engine</h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3">
+                                Tool automasi pengolahan video untuk konversi format horizontal 16:9 menjadi vertikal
+                                9:16 (TikTok/Reels/Shorts) dengan pelacakan subjek otomatis menggunakan face detection &
+                                FFmpeg pipeline.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">FFmpeg</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Python</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">OpenCV</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Shell
+                                    Script</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('autoreframe')"
+                            class="w-full py-2.5 rounded-xl border border-amber-400/30 text-amber-400 hover:bg-amber-500 hover:text-slate-950 font-semibold text-sm transition-colors flex items-center justify-center gap-2">
+                            <span>Lihat Detail Fitur</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 5: RTSP Live Surveillance Streamer -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 neon-border-glow"
+                    data-category="mobile">
+                    <div
+                        class="h-48 bg-gradient-to-br from-rose-900/60 to-slate-900 relative flex items-center justify-center p-6 border-b border-slate-800">
+                        <div class="text-center">
+                            <span class="inline-block p-3 rounded-2xl bg-rose-500/20 text-rose-400 mb-2">
+                                <i data-lucide="cctv" class="w-8 h-8"></i>
+                            </span>
+                            <p class="font-mono text-xs text-rose-300">Live Video Feed</p>
+                        </div>
+                        <span
+                            class="absolute top-4 right-4 px-2.5 py-1 text-xs font-mono rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">Hardware</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">RTSP CCTV Mobile Monitor</h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3">
+                                Aplikasi multi-feed surveillance yang mengalirkan video RTSP latency rendah langsung ke
+                                aplikasi Flutter dengan kontrol PTZ (Pan-Tilt-Zoom) dan notifikasi gerakan pintar.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Flutter</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">RTSP/WebRTC</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">VLC
+                                    Core</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">WebSocket</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('rtsp')"
+                            class="w-full py-2.5 rounded-xl border border-rose-400/30 text-rose-400 hover:bg-rose-500 hover:text-white font-semibold text-sm transition-colors flex items-center justify-center gap-2">
+                            <span>Lihat Detail Fitur</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 6: Thermal ESC/POS SDK for Flutter -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 neon-border-glow"
+                    data-category="pos">
+                    <div
+                        class="h-48 bg-gradient-to-br from-teal-900/60 to-slate-900 relative flex items-center justify-center p-6 border-b border-slate-800">
+                        <div class="text-center">
+                            <span class="inline-block p-3 rounded-2xl bg-brand-emerald/20 text-brand-emerald mb-2">
+                                <i data-lucide="printer" class="w-8 h-8"></i>
+                            </span>
+                            <p class="font-mono text-xs text-brand-emerald">Open Source Module</p>
+                        </div>
+                        <span
+                            class="absolute top-4 right-4 px-2.5 py-1 text-xs font-mono rounded-full bg-brand-emerald/20 text-emerald-300 border border-brand-emerald/30">Library</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Custom ESC/POS Print Engine</h4>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3">
+                                Pustaka utility custom untuk mempermudah perancangan layout struk kasir, pemotongan
+                                kertas otomatis, rendering logo bitmap 1-bit, dan barcode generation tanpa delay.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Dart</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Bluetooth
+                                    BLE</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">ESC/POS</span>
+                                <span
+                                    class="px-2.5 py-0.5 text-xs rounded-md font-mono bg-slate-200 dark:bg-slate-800">Raw
+                                    Byte Ops</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('escpos')"
+                            class="w-full py-2.5 rounded-xl border border-brand-emerald/30 text-brand-emerald hover:bg-brand-emerald hover:text-slate-950 font-semibold text-sm transition-colors flex items-center justify-center gap-2">
+                            <span>Lihat Detail Fitur</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline"
+        class="py-20 bg-slate-100/50 dark:bg-slate-900/40 border-t border-slate-200/50 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan font-bold mb-2">Perjalanan Karir
+                </h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Pengalaman & Rekam Jejak</h3>
+            </div>
+
+            <div class="relative border-l-2 border-slate-300 dark:border-slate-700 ml-4 md:ml-32 space-y-12">
+                <!-- Milestone 1 -->
+                <div class="relative pl-8 md:pl-10">
+                    <div
+                        class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-cyan border-4 border-slate-50 dark:border-brand-dark">
+                    </div>
+                    <span
+                        class="hidden md:block absolute -left-36 top-1 text-xs font-mono text-slate-600 dark:text-slate-400">2023
+                        - Sekarang</span>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <span class="md:hidden inline-block text-xs font-mono text-brand-cyan mb-2">2023 -
+                            Sekarang</span>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Senior Mobile & Software Architect
+                        </h4>
+                        <p class="text-xs font-mono text-brand-cyan mb-3">Enterprise SaaS & Mobile Solutions</p>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Memimpin arsitektur mobile Flutter skala produksi. Mengembangkan modul hardware POS
+                            terintegrasi, menerapkan CI/CD pipeline otomatis dengan Fastlane, serta menyusun
+                            standardisasi modul AI inference lokal.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="relative pl-8 md:pl-10">
+                    <div
+                        class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-emerald border-4 border-slate-50 dark:border-brand-dark">
+                    </div>
+                    <span
+                        class="hidden md:block absolute -left-36 top-1 text-xs font-mono text-slate-600 dark:text-slate-400">2021
+                        - 2023</span>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <span class="md:hidden inline-block text-xs font-mono text-brand-emerald mb-2">2021 -
+                            2023</span>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Lead Cross-Platform Developer</h4>
+                        <p class="text-xs font-mono text-brand-emerald mb-3">Mobile Solution Provider</p>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Mengorkestrasi pengembangan platform presensi korporat dan portal HR dengan ribuan pengguna
+                            harian aktif. Meningkatkan efisiensi memori aplikasi sebesar 35% dan menurunkan tingkat
+                            crash rate di bawah 0.1%.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="relative pl-8 md:pl-10">
+                    <div
+                        class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-purple-400 border-4 border-slate-50 dark:border-brand-dark">
+                    </div>
+                    <span
+                        class="hidden md:block absolute -left-36 top-1 text-xs font-mono text-slate-600 dark:text-slate-400">2019
+                        - 2021</span>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <span class="md:hidden inline-block text-xs font-mono text-purple-400 mb-2">2019 - 2021</span>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Full-Stack Mobile Engineer</h4>
+                        <p class="text-xs font-mono text-purple-400 mb-3">Software House & Integrasi Sistem</p>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Membangun aplikasi mobile B2B/B2C, integrasi gateway pembayaran, sinkronisasi data offline
+                            berbasis SQLite, serta pengembangan endpoint REST API berkecepatan tinggi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Left: Contact Details -->
+                <div class="lg:col-span-5">
+                    <h2 class="text-xs font-mono uppercase tracking-widest text-brand-cyan font-bold mb-2">Kontak</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">Mulai Kolaborasi atau Diskusi
+                        Proyek</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed mb-8">
+                        Punya ide produk baru, butuh bantuan konsultasi arsitektur Flutter, atau ingin mengintegrasikan
+                        hardware ke dalam aplikasi mobile Anda? Pintu diskusi selalu terbuka.
+                    </p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-4 glass-card p-4 rounded-xl">
+                            <div class="p-3 rounded-lg bg-brand-cyan/20 text-brand-cyan">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-600 dark:text-slate-400">Email Langsung</p>
+                                <a href="mailto:diyanto.ti@example.com"
+                                    class="font-mono text-sm font-semibold hover:text-brand-cyan transition-colors">diyanto.ti@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 glass-card p-4 rounded-xl">
+                            <div class="p-3 rounded-lg bg-brand-emerald/20 text-brand-emerald">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-600 dark:text-slate-400">WhatsApp / Telepon</p>
+                                <a href="https://wa.me/6281234567890" target="_blank"
+                                    class="font-mono text-sm font-semibold hover:text-brand-emerald transition-colors">+62
+                                    812-xxxx-xxxx</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 glass-card p-4 rounded-xl">
+                            <div class="p-3 rounded-lg bg-blue-500/20 text-blue-400">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-600 dark:text-slate-400">Domisili</p>
+                                <p class="font-mono text-sm font-semibold">Indonesia (Remote / Hybrid)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex items-center gap-3">
+                        <a href="https://github.com" target="_blank" aria-label="GitHub Profile"
+                            class="p-3 rounded-xl glass-card text-slate-600 dark:text-slate-400 hover:text-brand-cyan hover:border-brand-cyan/50 transition-all">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn Profile"
+                            class="p-3 rounded-xl glass-card text-slate-600 dark:text-slate-400 hover:text-brand-cyan hover:border-brand-cyan/50 transition-all">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:diyanto.ti@gmail.com" aria-label="Send Email"
+                            class="p-3 rounded-xl glass-card text-slate-600 dark:text-slate-400 hover:text-brand-cyan hover:border-brand-cyan/50 transition-all">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Form -->
+                <div class="lg:col-span-7">
+                    <div class="glass-card p-8 rounded-3xl border border-slate-300/50 dark:border-slate-800">
+                        <h4 class="text-xl font-bold mb-6">Kirim Pesan Langsung</h4>
+
+                        <form id="contactForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="userName"
+                                        class="block text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Nama
+                                        Lengkap</label>
+                                    <input type="text" id="userName" required placeholder="mis. John Doe"
+                                        class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:border-brand-cyan focus:outline-none text-sm transition-all">
+                                </div>
+                                <div>
+                                    <label for="userEmail"
+                                        class="block text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Alamat
+                                        Email</label>
+                                    <input type="email" id="userEmail" required placeholder="nama@perusahaan.com"
+                                        class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:border-brand-cyan focus:outline-none text-sm transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="projectType"
+                                    class="block text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Topik
+                                    atau Layanan</label>
+                                <select id="projectType"
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:border-brand-cyan focus:outline-none text-sm transition-all">
+                                    <option value="Mobile App Development">Pengembangan Aplikasi Mobile (Flutter)
+                                    </option>
+                                    <option value="Hardware / POS Integration">Integrasi Hardware / POS / IoT</option>
+                                    <option value="AI / Computer Vision Solution">Solusi AI / Computer Vision</option>
+                                    <option value="Code Review & Architecture Consulting">Konsultasi Arsitektur & Code
+                                        Review</option>
+                                    <option value="Other">Lainnya</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="userMessage"
+                                    class="block text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Deskripsi
+                                    Kebutuhan</label>
+                                <textarea id="userMessage" rows="4" required
+                                    placeholder="Ceritakan ide proyek atau tantangan teknis Anda..."
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:border-brand-cyan focus:outline-none text-sm transition-all"></textarea>
+                            </div>
+
+                            <!-- Feedback message container (custom modal-free message) -->
+                            <div id="formFeedback" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+
+                            <button type="submit" id="submitBtn"
+                                class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-emerald text-slate-950 font-bold text-base hover:opacity-95 transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                                <span>Kirim Pesan Sekarang</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="projectModal"
+        class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div
+            class="glass-card max-w-2xl w-full rounded-3xl border border-slate-700 overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col animate-in fade-in zoom-in-95 duration-200">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <h3 id="modalTitle" class="text-xl font-bold">Judul Proyek</h3>
+                <button onclick="closeModal()" class="p-2 rounded-xl text-slate-400 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6 overflow-y-auto space-y-6 flex-1">
+                <div id="modalBadgeContainer" class="flex flex-wrap gap-2"></div>
+
+                <div>
+                    <h5 class="text-xs font-mono uppercase tracking-wider text-brand-cyan font-bold mb-2">Tentang Proyek
+                    </h5>
+                    <p id="modalDescription" class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed"></p>
+                </div>
+
+                <div>
+                    <h5 class="text-xs font-mono uppercase tracking-wider text-brand-cyan font-bold mb-2">Fitur &
+                        Arsitektur Utama</h5>
+                    <ul id="modalFeatures"
+                        class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside"></ul>
+                </div>
+
+                <div
+                    class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <h5 class="text-xs font-mono uppercase tracking-wider text-brand-emerald font-bold mb-1">Dampak &
+                        Hasil</h5>
+                    <p id="modalImpact" class="text-xs sm:text-sm text-slate-600 dark:text-slate-400"></p>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-3">
+                <button onclick="closeModal()"
+                    class="px-5 py-2.5 rounded-xl glass-card text-sm font-semibold hover:bg-slate-800 transition-colors">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-t border-slate-200/60 dark:border-slate-800/80 py-10 bg-slate-50 dark:bg-brand-dark">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <div
+                    class="w-6 h-6 rounded-lg bg-gradient-to-tr from-brand-cyan to-brand-emerald flex items-center justify-center font-mono font-bold text-slate-950 text-xs">
+                    D
+                </div>
+                <p class="text-xs font-mono text-slate-500">
+                    &copy; <span id="currentYear"></span> Diyanto (Diyanto TI). Hak cipta dilindungi.
+                </p>
+            </div>
+            <p class="text-xs font-mono text-slate-500">
+                Dirancang dengan presisi • Modern Flutter & Software Engineer
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set Dynamic Year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Theme Switcher Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const mobileThemeToggleBtn = document.getElementById('mobileThemeToggle');
+        const htmlElement = document.documentElement;
+
+        function toggleTheme() {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.remove('light');
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            lucide.createIcons();
+        }
+
+        if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+        if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+
+        // Mobile Navigation Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Scroll Background Transition
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                navbar.classList.add('bg-slate-50/80', 'dark:bg-[#0B0F19]/80', 'backdrop-blur-md', 'shadow-sm');
+            } else {
+                navbar.classList.remove('bg-slate-50/80', 'dark:bg-[#0B0F19]/80', 'backdrop-blur-md', 'shadow-sm');
+            }
+        });
+
+        // Portfolio Interactive Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-brand-cyan', 'text-slate-950');
+                    btn.classList.add('glass-card');
+                });
+
+                button.classList.remove('glass-card');
+                button.classList.add('active', 'bg-brand-cyan', 'text-slate-950');
+
+                const filter = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const categories = card.getAttribute('data-category').split(' ');
+                    if (filter === 'all' || categories.includes(filter)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Project Data for Interactive Modals
+        const projectDetails = {
+            dpos: {
+                title: "DPOS (Point of Sale & QR Self-Order)",
+                badges: ["Flutter", "Riverpod", "ESC/POS Thermal", "Isar Local DB", "QR Dynamic"],
+                description: "DPOS adalah aplikasi Point-of-Sale modular untuk industri retail dan F&B yang menggabungkan operasional kasir cepat dengan sistem pemesanan QR mandiri pelanggan.",
+                features: [
+                    "Dukungan cetak struk via Bluetooth/USB ESC/POS tanpa lag",
+                    "Sinkronisasi database offline-first dengan deteksi konflik data",
+                    "Manajemen multi-cabang, inventaris stok batch, dan varian item",
+                    "Integrasi pembayaran non-tunai via QRIS dinamis"
+                ],
+                impact: "Meningkatkan kecepatan checkout pelanggan hingga 40% dan mencegah kehilangan catatan penjualan saat koneksi internet offline."
+            },
+            cupcake: {
+                title: "Cupcake HR & NAS Online",
+                badges: ["Flutter", "BLoC Pattern", "Geofencing", "Face Anti-Spoof", "Encrypted Cache"],
+                description: "Platform enterprise HR yang digunakan untuk mendigitalisasi kehadiran, absensi geo-fence, pengajuan lembur, izin cuti, serta pendistribusian slip gaji yang terenkripsi.",
+                features: [
+                    "Deteksi lokasi valid dengan penangkal Fake GPS (Mock Location Blocker)",
+                    "Pengenalan wajah liveness check untuk validitas kehadiran",
+                    "Push notification real-time untuk status persetujuan manajer",
+                    "Enkripsi lokal AES-256 untuk perlindungan data dokumen sensitif"
+                ],
+                impact: "Dipakai harian oleh ratusan staf operasional dengan uptime 99.8% dan nol insiden kebocoran kredensial."
+            },
+            pothole: {
+                title: "Road Pothole Deep Learning Detection",
+                badges: ["Swin Transformer", "YOLOv8", "TFLite / ONNX", "Flutter", "GPS Tagging"],
+                description: "Solusi otomatisasi survei infrastruktur jalan raya dengan mendeteksi lubang dan retakan berbahaya secara visual melalui kamera smartphone yang terpasang di kendaraan survei.",
+                features: [
+                    "Penerapan Swin Transformer untuk ekstraksi fitur permukaan aspal yang detail",
+                    "Kuantisasi model ke TFLite INT8 untuk inferensi ringan 30+ FPS di smartphone",
+                    "Geotagging koordinat presisi tinggi saat lubang terdeteksi",
+                    "Dashboard pemetaan GIS untuk rute prioritas perbaikan dinas terkait"
+                ],
+                impact: "Mempercepat proses audit inspeksi kondisi jalan hingga 5x lipat dibanding pencatatan manual."
+            },
+            autoreframe: {
+                title: "Media Auto-Reframe Engine",
+                badges: ["FFmpeg", "Python", "Computer Vision", "Smart Crop", "Automation"],
+                description: "Engine cerdas berbasis komputasi visual untuk memotong dan memformat ulang video lanskap 16:9 menjadi format vertikal 9:16 untuk kebutuhan konten video pendek secara otomatis.",
+                features: [
+                    "Deteksi area fokus objek bergerak utama (speaker/action tracking)",
+                    "Eksekusi pipeline render cepat memanfaatkan akselerasi GPU & FFmpeg filtergraph",
+                    "Penyesuaian teks caption dan overlay secara otomatis",
+                    "Batch processing ratusan video dalam sekali instruksi terminal"
+                ],
+                impact: "Mengurangi waktu editing video pendek promosi dari rata-rata 30 menit per video menjadi di bawah 2 menit."
+            },
+            rtsp: {
+                title: "RTSP CCTV Mobile Surveillance",
+                badges: ["Flutter", "VLC Engine", "RTSP/HLS", "PTZ Control", "Hardware Streaming"],
+                description: "Aplikasi penampil live stream CCTV IP camera dengan latensi ultra rendah untuk kebutuhan monitoring keamanan lokasi kerja secara real-time.",
+                features: [
+                    "Multi-grid streaming view hingga 4 channel bersamaan tanpa overheating perangkat",
+                    "Kontrol arah kamera PTZ (Pan-Tilt-Zoom) melalui swipe gestur",
+                    "Snapshot instan resolusi tinggi dan perekaman lokal",
+                    "Kompatibilitas dengan berbagai merek IP Camera Onvif standar"
+                ],
+                impact: "Memungkinkan tim pengawas lapangan memonitor area berisiko tinggi langsung dari ponsel pintar dengan latensi di bawah 1 detik."
+            },
+            escpos: {
+                title: "Thermal ESC/POS Custom SDK",
+                badges: ["Dart Package", "Low-level Byte Manipulation", "Bitmap Rendering", "BLE 5.0"],
+                description: "Paket kustom Dart berkinerja tinggi untuk memformat dan mengirim stream perintah ESC/POS ke berbagai model printer kasir bluetooth tanpa dependensi eksternal berat.",
+                features: [
+                    "Algoritma konversi bitmap gambar logo monokrom tajam (Floyd-Steinberg dithering)",
+                    "Format tabel dan kolom struk belanja otomatis tanpa pergeseran karakter",
+                    "Auto-reconnect handler saat koneksi bluetooth terputus tiba-tiba",
+                    "Mendukung ukuran kertas 58mm dan 80mm secara serempak"
+                ],
+                impact: "Diadopsi di beberapa proyek POS internal dan menghasilkan cetakan struk rapi serta stabil di berbagai tipe hardware printer murah."
+            }
+        };
+
+        // Modal Control Functions
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalBadgeContainer = document.getElementById('modalBadgeContainer');
+        const modalFeatures = document.getElementById('modalFeatures');
+        const modalImpact = document.getElementById('modalImpact');
+
+        function openModal(projectId) {
+            const data = projectDetails[projectId];
+            if (!data) return;
+
+            modalTitle.textContent = data.title;
+            modalDescription.textContent = data.description;
+            modalImpact.textContent = data.impact;
+
+            // Badges
+            modalBadgeContainer.innerHTML = '';
+            data.badges.forEach(badge => {
+                const span = document.createElement('span');
+                span.className = 'px-2.5 py-1 text-xs font-mono rounded-lg bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20';
+                span.textContent = badge;
+                modalBadgeContainer.appendChild(span);
+            });
+
+            // Features
+            modalFeatures.innerHTML = '';
+            data.features.forEach(feat => {
+                const li = document.createElement('li');
+                li.textContent = feat;
+                modalFeatures.appendChild(li);
+            });
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Interactive Contact Form Handling (No alert, inline confirmation)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            const feedback = document.getElementById('formFeedback');
+            const name = document.getElementById('userName').value;
+
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-70');
+            submitBtn.innerHTML = `
+        <span class="inline-block w-4 h-4 border-2 border-slate-900 border-t-transparent rounded-full animate-spin"></span>
+        <span>Mengirim Pesan...</span>
+      `;
+
+            // Simulate asynchronous sending
+            setTimeout(() => {
+                feedback.className = "p-4 rounded-xl text-sm font-medium bg-emerald-500/10 text-brand-emerald border border-emerald-500/30 block";
+                feedback.innerHTML = `Terima kasih, <strong>${name}</strong>! Pesan Anda telah terkirim. Saya akan segera menghubungi Anda kembali melalui email.`;
+
+                event.target.reset();
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-70');
+                submitBtn.innerHTML = `
+          <i data-lucide="check" class="w-5 h-5"></i>
+          <span>Pesan Berhasil Terkirim</span>
+        `;
+                lucide.createIcons();
+
+                // Reset button state after 4 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = `
+            <i data-lucide="send" class="w-5 h-5"></i>
+            <span>Kirim Pesan Sekarang</span>
+          `;
+                    lucide.createIcons();
+                }, 4000);
+            }, 900);
+        }
+    </script>
+</body>
+
+</html>

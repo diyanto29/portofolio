@@ -77,7 +77,7 @@ Pilih salah satu metode berikut:
 
 3. **Hubungkan & Push ke GitHub**:
    ```bash
-   git remote add origin https://github.com/<USERNAME-ANDA>/<NAMA-REPO>.git
+   cd /Users/diyanto/Downloads/portfolio
    git push -u origin main
    ```
 

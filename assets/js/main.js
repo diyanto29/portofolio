@@ -198,6 +198,76 @@ const projectData = {
     }
   },
 
+  'manggapos': {
+    tags: ['Flutter (Dart)', 'Riverpod', 'ESC/POS Bluetooth', 'SQLite / Offline-First', 'Catalog & Split-Bill', 'QRIS Dinamis'],
+    id: {
+      badge: 'Produk Mandiri • F&B & Retail POS',
+      title: 'Mangga POS (Smart POS & Self-Order UMKM)',
+      subtitle: 'Independent Proprietary Product • Retail & F&B Ecosystem',
+      desc: 'Sistem point-of-sale modern dan kasir modular yang dirancang untuk merchant kuliner dan ritel UMKM. Mengedepankan arsitektur 100% offline-first, pencetakan struk instan tanpa latensi via Bluetooth thermal ESC/POS, katalog varian menu kustom, fitur split-bill pesanan meja, dan laporan kas harian tanpa ketergantungan koneksi internet.',
+      features: [
+        'Cetak Struk Bluetooth ESC/POS Instan: Driver print engine langsung tanpa jeda, mendukung kertas 58mm/80mm, logo toko, dan format struk rapi.',
+        'Operasional Kasir 100% Offline: Penjualan dan rekap pesanan tetap berjalan normal meski sinyal internet padam total.',
+        'Manajemen Varian & Modifiers: Kustomisasi menu fleksibel (level pedas, topping, ukuran porsi) dan peringatan batas minimum stok.',
+        'Split Bill & Open Tab Meja: Perhitungan otomatis tagihan terpisah per pelanggan, diskon persen/nominal, serta biaya layanan/pajak.',
+        'Pembayaran Digital QRIS: Pembuatan QRIS dinamis di layar untuk transaksi non-tunai langsung saat kasir online.',
+        'Rekap Kas Shift & Laba Kotor: Laporan penutupan kasir per shift, rincian metode bayar (tunai/transfer), dan analisa produk terlaris.'
+      ],
+      impact: 'Memangkas antrean kasir di jam sibuk hingga 50%, menjamin zero data loss saat internet mati, dan mengeliminasi biaya software POS bulanan bagi pelaku usaha UMKM.'
+    },
+    en: {
+      badge: 'Proprietary Product • F&B & Retail POS',
+      title: 'Mangga POS (Smart POS & Self-Order UMKM)',
+      subtitle: 'Independent Proprietary Product • Retail & F&B Ecosystem',
+      desc: 'A modern, modular point-of-sale system engineered for culinary and retail MSMEs. Built on a 100% offline-first architecture, zero-latency ESC/POS Bluetooth thermal receipt printing, customizable item variants, table split-billing, and shift sales reconciliation without mandatory internet connectivity.',
+      features: [
+        'Instant Bluetooth ESC/POS Thermal Printing: Low-level driver engine printing seamlessly on 58mm/80mm receipt papers with custom store logos.',
+        '100% Offline Cashier Operations: Seamless checkout and order logging even during complete internet network blackouts.',
+        'Variant & Modifier Management: Flexible menu customization (spiciness levels, toppings, portion sizing) and low-stock alerts.',
+        'Split Bill & Table Tab System: Automated bill splitting among dining patrons with automatic calculation of taxes and service fees.',
+        'Dynamic QRIS Digital Payments: On-screen dynamic QR generation for contactless cashless payments whenever connected.',
+        'Shift Cash Ledger & Gross Profit: Shift end reconciliation reports, payment method breakdown (cash/transfer), and top-selling product analytics.'
+      ],
+      impact: 'Cut peak-hour checkout queues by 50%, guaranteed zero transaction loss during offline hours, and eliminated recurring monthly POS software subscription costs for local merchants.'
+    }
+  },
+
+  'juragankost': {
+    tags: ['Flutter (Dart)', 'SQLite / Drift', 'WhatsApp Intent (wa.me)', 'ESC/POS Bluetooth 58/80mm', 'Excel Multi-Sheet (.xlsx)', 'Offline Cryptographic Lock'],
+    id: {
+      badge: 'Produk Mandiri • Property & FinTech',
+      title: 'JuraganKost — Aplikasi Manajemen Kos-Kosan & Tagihan WhatsApp',
+      subtitle: 'Independent Proprietary Android App • 100% Offline-First Architecture',
+      desc: 'Aplikasi manajemen operasional dan keuangan kos-kosan berbasis 100% offline-first tanpa biaya langganan bulanan. Didesain untuk pemilik kos skala mikro-menengah (5–50 kamar) dengan denah visual kamar berbasis 5 kode warna status sewa, otomasi pengingat tagihan via WhatsApp langsung ke nomor penyewa tanpa biaya server API, kartu linimasa pembayaran bulanan & cicilan, pencatatan beban operasional, cetak kuitansi thermal Bluetooth/PDF, serta ekspor pembukuan Excel multi-sheet.',
+      features: [
+        'Denah Visual Kamar Interaktif (5 Kode Warna): Pemantauan visual instan status kamar: Hijau (Kosong), Biru (Terisi lancar), Kuning (Jatuh tempo ≤ 3 hari), Merah (Menunggak), dan Abu-abu (Renovasi/Perbaikan).',
+        'Otomatisasi Tagihan WhatsApp 1-Klik: Generator pesan penagihan personal terisi otomatis dengan nama penyewa, nomor kamar, nominal tagihan, dan rekening tujuan via Android Intent wa.me tanpa gateway berbayar.',
+        'Kartu Linimasa Pembayaran & Cicilan (Tenant Billing): Pencatatan pelunasan penuh, pembayaran bertahap (DP/termin), kalkulasi sisa piutang otomatis, dan arsip foto bukti transfer lokal privat.',
+        'Vault Data Penyewa Terenkripsi: Manajemen identitas penghuni (KTP, kontak darurat, tanggal sewa) tersimpan di direktori privat aplikasi dengan hash UUID untuk menjamin privasi.',
+        'Generator Kuitansi Digital & Cetak Thermal: Penerbitan kuitansi format PDF resmi siap bagikan ke WhatsApp serta cetak langsung ke printer thermal Bluetooth ESC/POS (58mm/80mm).',
+        'Laporan Laba/Rugi & Ekspor Excel (.xlsx): Pembuatan berkas spreadsheet 3 sheet (Buku Kas Masuk/Keluar, Matriks Pembayaran Tahunan Seluruh Kamar, dan Basis Data Penyewa Aktif).',
+        'Proteksi Lisensi Kriptografi Offline: Sistem lisensi sekali beli (one-time license) dengan verifikasi hash SHA-256 terikat hardware ID perangkat guna mencegah pembajakan APK tanpa izin.'
+      ],
+      impact: 'Menghilangkan biaya langganan software kos bulanan (hemat Rp 0 selamanya), menurunkan angka tunggakan sewa hingga 85% dengan reminder WhatsApp santun, dan menyelesaikan audit pembukuan tahunan dalam 1 klik ekspor Excel.'
+    },
+    en: {
+      badge: 'Proprietary Product • Property & FinTech',
+      title: 'JuraganKost — Boarding House Management & WhatsApp Billing',
+      subtitle: 'Independent Proprietary Android App • 100% Offline-First Architecture',
+      desc: 'A 100% offline-first operational and financial management mobile app for boarding houses (kost-kosan) with zero recurring monthly subscription fees. Engineered for property owners (5–50 rooms) featuring interactive 5-color visual room status maps, 1-click WhatsApp billing reminders via Android intents (zero API cost), tenant installment payment timelines, operational bookkeeping, Bluetooth ESC/POS receipt printing, and multi-sheet Excel reporting.',
+      features: [
+        'Interactive 5-Color Visual Room Map: Instant occupancy monitoring with color-coded badges: Green (Vacant), Blue (Paid/Current), Yellow (Due in ≤ 3 days), Red (Overdue), and Grey (Maintenance).',
+        '1-Click Automated WhatsApp Billing: Generates personalized debt reminder messages with tenant name, room number, amount due, and bank account details via native Android wa.me intents with zero API fees.',
+        'Tenant Payment Timeline & Installment Tracking: Records full payments, partial deposits, automated receivables calculation, and locally secured transfer proof receipts.',
+        'Encrypted Private Tenant Vault: Stores government ID photos and emergency contact details securely in private app sandboxed storage with hashed UUID file naming.',
+        'Digital PDF Receipts & Thermal Printing: Generates official PDF receipts ready to share on WhatsApp or print directly via ESC/POS Bluetooth thermal printers (58mm/80mm).',
+        'P&L Accounting & Multi-Sheet Excel Export (.xlsx): Generates clean spreadsheets with 3 distinct sheets (Cash Flow Ledger, Annual Room Payment Matrix, and Tenant Roster).',
+        'Offline Cryptographic Hardware License Lock: One-time purchase security model utilizing SHA-256 hardware-bound device signature verification preventing unauthorized APK redistribution.'
+      ],
+      impact: 'Eliminated recurring monthly property software subscriptions ($0 server costs forever), reduced rent delinquency by 85% with courteous WhatsApp reminders, and streamlined annual bookkeeping audits into 1-click Excel exports.'
+    }
+  },
+
   'loan-portal': {
     tags: ['CI/CD Pipeline', 'High Availability', 'Frontend Lead', 'Fintech Security'],
     id: {

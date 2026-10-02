@@ -157,6 +157,16 @@ const translations = {
     'card.award.desc': 'Proyek akhir rekayasa perangkat lunak terpilih sebagai proyek terbaik di Politeknik Negeri Indramayu dengan keunggulan fungsionalitas dan arsitektur.',
     'card.award.footer': 'Politeknik Negeri Indramayu',
 
+    'card.manggapos.badge': 'Produk Mandiri • POS',
+    'card.manggapos.title': 'Mangga POS (Smart POS & Self-Order UMKM)',
+    'card.manggapos.desc': 'Sistem kasir modern modular untuk merchant kuliner & ritel UMKM terintegrasi printer thermal bluetooth ESC/POS, manajemen pesanan meja, dan pemesanan mandiri.',
+    'card.manggapos.footer': 'Sistem Kasir & UMKM',
+
+    'card.juragankost.badge': 'Produk Mandiri • Properti',
+    'card.juragankost.title': 'JuraganKost — Manajemen Kos-Kosan & Tagihan WA',
+    'card.juragankost.desc': 'Aplikasi manajemen kos-kosan 100% offline-first dengan denah visual 5 warna, otomatisasi draf tagihan WhatsApp 1-klik, kartu linimasa pembayaran, dan ekspor laporan Excel.',
+    'card.juragankost.footer': '100% Offline-First (No Cloud)',
+
     // Contact Section
     'contact.subtitle': 'Mari Berkolaborasi',
     'contact.title': 'Hubungi Saya Langsung',
@@ -336,6 +346,16 @@ const translations = {
     'card.award.title': 'Awarded Best Project Informatics',
     'card.award.desc': 'Undergraduate software engineering capstone selected as the Best Project at State Polytechnic of Indramayu for architectural and functional excellence.',
     'card.award.footer': 'State Polytechnic of Indramayu',
+
+    'card.manggapos.badge': 'Proprietary • POS',
+    'card.manggapos.title': 'Mangga POS (Smart POS & Self-Order UMKM)',
+    'card.manggapos.desc': 'Modern modular POS system tailored for culinary & retail MSMEs with Bluetooth ESC/POS thermal printing, table order management, and digital self-ordering.',
+    'card.manggapos.footer': 'POS & MSME System',
+
+    'card.juragankost.badge': 'Proprietary • Property Tech',
+    'card.juragankost.title': 'JuraganKost — Boarding House & WhatsApp Billing',
+    'card.juragankost.desc': '100% offline-first boarding house management app featuring 5-color visual room maps, 1-click WhatsApp billing reminders, tenant payment ledger, and Excel exports.',
+    'card.juragankost.footer': '100% Offline-First (No Cloud)',
 
     // Contact Section
     'contact.subtitle': 'Let\'s Connect',

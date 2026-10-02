@@ -204,6 +204,7 @@ const projectData = {
   },
 
   'dpos': {
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.mudahkan.warmi',
     tags: ['Flutter', 'Riverpod', 'ESC/POS Thermal', 'Isar Local DB', 'QR Dynamic', 'Offline-First'],
     id: {
       badge: 'Produk Mandiri • F&B & Retail POS',
@@ -332,6 +333,7 @@ const projectData = {
   },
 
   'juragankost': {
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=online.mudahkan.kostku',
     tags: ['Flutter (Dart)', 'SQLite / Drift', 'WhatsApp Intent (wa.me)', 'ESC/POS Bluetooth 58/80mm', 'Excel Multi-Sheet (.xlsx)', 'Offline Cryptographic Lock'],
     id: {
       badge: 'Produk Mandiri • Property & FinTech',
@@ -596,6 +598,30 @@ function openModal(key) {
     span.innerText = t;
     tagsContainer.appendChild(span);
   });
+
+  // Render Play Store link button and badge if available
+  const playstoreContainer = document.getElementById('modal-playstore-container');
+  const playstoreBtn = document.getElementById('modal-playstore-btn');
+  const playstoreBadge = document.getElementById('modal-playstore-badge');
+  if (projectItem.playStoreUrl) {
+    if (playstoreContainer && playstoreBtn) {
+      playstoreBtn.href = projectItem.playStoreUrl;
+      playstoreContainer.classList.remove('hidden');
+    }
+    if (playstoreBadge) {
+      playstoreBadge.href = projectItem.playStoreUrl;
+      playstoreBadge.classList.remove('hidden');
+      playstoreBadge.classList.add('inline-flex');
+    }
+  } else {
+    if (playstoreContainer) {
+      playstoreContainer.classList.add('hidden');
+    }
+    if (playstoreBadge) {
+      playstoreBadge.classList.add('hidden');
+      playstoreBadge.classList.remove('inline-flex');
+    }
+  }
 
   // Re-run Lucide Icons untuk ikon baru di modal
   if (window.lucide) {

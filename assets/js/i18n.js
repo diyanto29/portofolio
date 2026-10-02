@@ -194,7 +194,9 @@ const translations = {
     'modal.features_title': 'Fitur & Arsitektur Utama',
     'modal.impact_title': 'Dampak Bisnis & Nilai Solusi',
     'modal.tech_title': 'Teknologi Digunakan',
-    'modal.close_btn': 'Tutup'
+    'modal.close_btn': 'Tutup',
+    'modal.playstore_btn': 'Buka di Google Play',
+    'cards.live_playstore': 'Google Play'
   },
 
   en: {
@@ -387,7 +389,9 @@ const translations = {
     'modal.features_title': 'Key Features & Architecture',
     'modal.impact_title': 'Business Impact & Value',
     'modal.tech_title': 'Technologies Used',
-    'modal.close_btn': 'Close'
+    'modal.close_btn': 'Close',
+    'modal.playstore_btn': 'View on Google Play',
+    'cards.live_playstore': 'Google Play'
   }
 };
 

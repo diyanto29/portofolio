@@ -16,6 +16,7 @@
 .gradient-text {
   background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -213,6 +214,7 @@ html.light .project-card.border-amber-500\/30:hover h3 {
 html.light .gradient-text {
   background: linear-gradient(135deg, #0891b2 0%, #059669 100%) !important;
   -webkit-background-clip: text !important;
+  background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
 
@@ -402,7 +404,7 @@ html.light .bg-gradient-to-r.from-amber-500.to-amber-600 * {
 }
 
 /* Filter Bar */
-html.light .flex.flex-wrap.gap-2.p-1.5.glassmorphism {
+html.light #filter-tabs-container {
   background-color: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
   box-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.05) !important;

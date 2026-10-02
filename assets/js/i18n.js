@@ -12,6 +12,9 @@ const translations = {
     'nav.projects': 'Produk & Proyek',
     'nav.contact': 'Kontak',
     'nav.hire_me': 'Hire Me',
+    'nav.theme_toggle': 'Mode Tampilan',
+    'nav.theme_light': 'Mode Terang',
+    'nav.theme_dark': 'Mode Gelap',
 
     // Hero Section
     'hero.available': 'Tersedia untuk Kontrak Remote & Proyek Kritis',
@@ -202,6 +205,9 @@ const translations = {
     'nav.projects': 'Products & Projects',
     'nav.contact': 'Contact',
     'nav.hire_me': 'Hire Me',
+    'nav.theme_toggle': 'Display Theme',
+    'nav.theme_light': 'Light Mode',
+    'nav.theme_dark': 'Dark Mode',
 
     // Hero Section
     'hero.available': 'Available for Remote Roles & High-Impact Projects',
@@ -422,6 +428,11 @@ function setLanguage(lang) {
     if (modal && !modal.classList.contains('hidden')) {
       window.openModal(window.currentOpenModalKey);
     }
+  }
+
+  // Sync Theme UI text with new language
+  if (typeof window.updateThemeUI === 'function') {
+    window.updateThemeUI();
   }
 
   // Refresh Lucide Icons if available

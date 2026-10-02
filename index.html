@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth dark">
+<html lang="id" class="scroll-smooth light">
 
 <head>
   <meta charset="UTF-8" />
@@ -12,7 +12,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
 
   <!-- Theme & SEO Meta -->
-  <meta name="theme-color" content="#060911" />
+  <meta name="theme-color" content="#f8fafc" id="meta-theme-color" />
   <meta name="author" content="Diyanto" />
   <meta name="keywords" content="Diyanto, Software Engineer, Mobile Developer, Flutter, Dart, Android NDK, Web Developer, Portfolio" />
 
@@ -63,7 +63,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2.2" />
 </head>
 
 <body
@@ -92,7 +92,7 @@
         <a href="#contact" data-i18n="nav.contact" class="text-slate-300 hover:text-cyan-400 transition-colors">Kontak</a>
       </nav>
 
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2.5">
         <!-- Language Switcher Pill (Desktop) -->
         <div class="lang-switcher-container flex items-center p-1 rounded-lg bg-slate-900/90 border border-slate-700/80 text-xs font-mono">
           <button type="button" data-lang="id" onclick="setLanguage('id')"
@@ -100,6 +100,13 @@
           <button type="button" data-lang="en" onclick="setLanguage('en')"
             class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all font-medium">EN</button>
         </div>
+
+        <!-- Theme Switcher (Desktop) -->
+        <button id="theme-toggle-btn" type="button" onclick="toggleTheme()"
+          class="p-2 rounded-lg bg-slate-900/90 border border-slate-700/80 text-slate-300 hover:text-cyan-400 transition-all flex items-center justify-center"
+          title="Ganti ke Mode Gelap / Switch to Dark Mode" aria-label="Ganti Tema">
+          <i id="theme-toggle-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
 
         <!-- Resume Link -->
         <a href="mailto:diyanto2911@gmail.com"
@@ -128,6 +135,17 @@
             class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all font-medium">EN</button>
         </div>
       </div>
+
+      <!-- Theme Switcher Row (Mobile) -->
+      <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+        <span class="text-xs font-mono text-slate-400" data-i18n="nav.theme_toggle">Mode Tampilan</span>
+        <button id="mobile-theme-toggle-btn" type="button" onclick="toggleTheme()"
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs font-mono text-slate-300 hover:text-cyan-400 transition-all">
+          <i id="mobile-theme-toggle-icon" data-lucide="moon" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span id="mobile-theme-text">Mode Gelap</span>
+        </button>
+      </div>
+
       <a href="#about" data-i18n="nav.about" class="block py-2 text-slate-300 hover:text-cyan-400 mobile-nav-link">Tentang</a>
       <a href="#experience" data-i18n="nav.experience" class="block py-2 text-slate-300 hover:text-cyan-400 mobile-nav-link">Pengalaman</a>
       <a href="#skills" data-i18n="nav.skills" class="block py-2 text-slate-300 hover:text-cyan-400 mobile-nav-link">Keahlian</a>
@@ -1270,8 +1288,8 @@
     </div>
   </div>
 
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js?v=2.2"></script>
+  <script src="assets/js/main.js?v=2.2"></script>
 </body>
 
 </html>

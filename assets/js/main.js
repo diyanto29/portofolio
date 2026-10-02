@@ -3,7 +3,106 @@
  * Main JavaScript Controller
  */
 
+// ========================================================
+// THEME CONTROLLER (DEFAULT: LIGHT THEME, OPTIONS: LIGHT / DARK)
+// ========================================================
+function getSavedTheme() {
+  return localStorage.getItem('diyanto_portfolio_theme') || 'light';
+}
+
+function setTheme(theme) {
+  if (theme !== 'light' && theme !== 'dark') {
+    theme = 'light';
+  }
+  
+  const root = document.documentElement;
+  if (theme === 'light') {
+    root.classList.remove('dark');
+    root.classList.add('light');
+  } else {
+    root.classList.remove('light');
+    root.classList.add('dark');
+  }
+  
+  try {
+    localStorage.setItem('diyanto_portfolio_theme', theme);
+  } catch (err) {
+    console.warn('localStorage not available', err);
+  }
+  
+  // Update meta theme-color for mobile browsers
+  const metaThemeColor = document.getElementById('meta-theme-color') || document.querySelector('meta[name="theme-color"]');
+  if (metaThemeColor) {
+    metaThemeColor.setAttribute('content', theme === 'light' ? '#f8fafc' : '#060911');
+  }
+  
+  updateThemeUI(theme);
+}
+
+function toggleTheme() {
+  const currentTheme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  setTheme(newTheme);
+}
+
+function updateThemeUI(theme) {
+  if (!theme) {
+    theme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+  }
+  
+  const isLight = theme === 'light';
+  const currentLang = (typeof currentLanguage !== 'undefined') ? currentLanguage : (localStorage.getItem('diyanto_portfolio_lang') || 'id');
+  
+  // Desktop Toggle Button (show Moon when in Light mode to switch to Dark, and Sun when in Dark mode)
+  const desktopIcon = document.getElementById('theme-toggle-icon');
+  if (desktopIcon) {
+    desktopIcon.setAttribute('data-lucide', isLight ? 'moon' : 'sun');
+  }
+  
+  const desktopBtn = document.getElementById('theme-toggle-btn');
+  if (desktopBtn) {
+    const tooltipText = isLight
+      ? (currentLang === 'en' ? 'Switch to Dark Mode' : 'Ganti ke Mode Gelap')
+      : (currentLang === 'en' ? 'Switch to Light Mode' : 'Ganti ke Mode Terang');
+    desktopBtn.setAttribute('title', tooltipText);
+    desktopBtn.setAttribute('aria-label', tooltipText);
+  }
+  
+  // Mobile Toggle Button
+  const mobileIcon = document.getElementById('mobile-theme-toggle-icon');
+  if (mobileIcon) {
+    mobileIcon.setAttribute('data-lucide', isLight ? 'moon' : 'sun');
+  }
+  
+  const mobileText = document.getElementById('mobile-theme-text');
+  if (mobileText) {
+    mobileText.innerText = isLight
+      ? (currentLang === 'en' ? 'Dark Mode' : 'Mode Gelap')
+      : (currentLang === 'en' ? 'Light Mode' : 'Mode Terang');
+  }
+  
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
+// Immediately apply saved or default theme before DOM fully parses to avoid flash
+(function initThemeImmediately() {
+  const theme = getSavedTheme();
+  const root = document.documentElement;
+  if (theme === 'light') {
+    root.classList.remove('dark');
+    root.classList.add('light');
+  } else {
+    root.classList.remove('light');
+    root.classList.add('dark');
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Sync Theme UI state
+  setTheme(getSavedTheme());
+
   // Inisialisasi ikon Lucide
   if (window.lucide) {
     window.lucide.createIcons();
@@ -440,7 +539,10 @@ const projectData = {
 function openModal(key) {
   window.currentOpenModalKey = key;
   const projectItem = projectData[key];
-  if (!projectItem) return;
+  if (!projectItem) {
+    console.warn('Modal key not found in projectData:', key);
+    return;
+  }
 
   const lang = (typeof currentLanguage !== 'undefined') ? currentLanguage : 'id';
   const data = projectItem[lang] || projectItem['id'] || projectItem;
@@ -530,3 +632,13 @@ function handleFormSubmit(e) {
     window.location.href = 'mailto:diyanto2911@gmail.com?subject=Tawaran Kolaborasi Software Engineer';
   }, 1200);
 }
+
+// Global exports for inline HTML onclick handlers
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.filterProjects = filterProjects;
+window.handleFormSubmit = handleFormSubmit;
+window.setTheme = setTheme;
+window.toggleTheme = toggleTheme;
+window.updateThemeUI = updateThemeUI;
+
